@@ -1,0 +1,39 @@
+.header {
+    padding: 0 0 4.5rem;
+    width: 70%;
+    margin: 25px auto;
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 8px #f0f1f2;
+    box-shadow: 0 2px 8px #f0f1f2;
+    height: 75px;
+}
+
+.body{
+    width: 75%;
+    margin: 2.5% auto;
+}
+
+.ant-carousel{
+    width: 800px;
+    height: 320px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.ant-carousel .slick-slide img{
+    width: 750px;
+    height:315px;
+    background: #364d79;
+    margin: 0 auto;
+    position: relative;
+}
+
+.searchBar {
+    position: relative;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 0;
+    margin-right: 10%;
+    margin-bottom: 3%;
+    text-align: center;
+}
