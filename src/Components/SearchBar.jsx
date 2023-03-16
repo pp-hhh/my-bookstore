@@ -2,14 +2,20 @@ import React from "react";
 import { Input } from "antd";
 
 const { Search } = Input;
-const onSearch = (value) => console.log(value);
 
 function SearchBar() {
+
+  function handleChange(event){
+    const name = event.target;
+    
+  }
+
+
   return (
     <Search
       placeholder="input search text"
       allowClear
-      onSearch={onSearch}
+      onChange={handleChange}
     />
   );
 }

@@ -6,6 +6,7 @@ import "../css/home.css";
 import BookCarousel from "../Components/BookCarousel";
 import BookList from "../Components/BookList";
 import SearchBar from "../Components/SearchBar";
+import Foot from "../Components/Foot";
 
 const { Header, Content, Footer } = Layout;
 
@@ -23,6 +24,9 @@ function HomeView(props) {
           <BookList />
         </Content>
       </Layout>
+      <Footer>
+        <Foot/>
+      </Footer>
     </Layout>
   );
 }
