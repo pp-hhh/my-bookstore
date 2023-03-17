@@ -1,13 +1,13 @@
 import React from "react";
 import { Layout } from "antd";
 import HeaderInfo from "../Components/HeaderInfo";
-import SearchBar from "../Components/SearchBar";
 import SideBar from "../Components/SideBar";
-import CartList from "../Components/CartList";
+import SearchBar from "../Components/SearchBar";
+import OrderList from "../Components/OrderList";
 
 const { Content } = Layout;
 
-function CartView() {
+function OrderView() {
   return (
     <div>
       <HeaderInfo />
@@ -15,9 +15,9 @@ function CartView() {
         <Layout>
           <SideBar />
           <Content>
-            <h3>My Shopping Cart</h3>
+            <h3>My Order</h3>
             <SearchBar />
-            <CartList />
+            <OrderList />
           </Content>
         </Layout>
       </Layout>
@@ -25,4 +25,4 @@ function CartView() {
   );
 }
 
-export default CartView;
+export default OrderView;

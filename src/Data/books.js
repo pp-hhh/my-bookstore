@@ -1,6 +1,7 @@
-const books = [
+const Books = [
   {
     id: 1,
+    key: 1,
     title: "A Room of One's Own",
     imgURL:
       "https://th.bing.com/th/id/OIP.ULok6yty0UtvDDU306LxHAAAAA?pid=ImgDet&rs=1",
@@ -9,10 +10,11 @@ const books = [
     publisher: "HarperCollins Publishers",
     status: 0,
     introduction:
-      "In A Room of One’s Own, Virginia Woolf imagines that Shakespeare had a sister—a sister equal to Shakespeare in talent, and equal in genius, but whose legacy is radically different. This imaginary woman never writes a word and dies by her own hand, her genius unexpressed. If only she had found the means to create, argues Woolf, she would have reached the same heights as her immortal sibling. In this classic essay, Woolf takes on the establishment, using her gift of language to dissect the world around her and give voice to those who are without. Her message is a simple one: women must have a steady income and a room of their own in order to have the freedom to create.",
+      "In A Room of Ones Own, Virginia Woolf imagines that Shakespeare had a sister—a sister equal to Shakespeare in talent, and equal in genius, but whose legacy is radically different. This imaginary woman never writes a word and dies by her own hand, her genius unexpressed. If only she had found the means to create, argues Woolf, she would have reached the same heights as her immortal sibling. In this classic essay, Woolf takes on the establishment, using her gift of language to dissect the world around her and give voice to those who are without. Her message is a simple one: women must have a steady income and a room of their own in order to have the freedom to create.",
   },
   {
     id: 2,
+    key: 2,
     title: "Animal Farm",
     imgURL:
       "https://ts1.cn.mm.bing.net/th/id/R-C.ccf3461170b2a372201a5d7cb80baff6?rik=7wy59A5ZaGZkGQ&riu=http%3a%2f%2fwww.allesoverboekenenschrijvers.nl%2fwp-content%2fuploads%2f2015%2f04%2fGeorge-Orwell-Animal-Farm.jpg&ehk=Tr8OuIGnlOeXz4uEGsp26yC296NvV8TyQkfNHEkIMAc%3d&risl=&pid=ImgRaw&r=0",
@@ -25,6 +27,7 @@ const books = [
   },
   {
     id: 3,
+    key: 3,
     title: "Pride and Prejudice",
     imgURL:
       "https://th.bing.com/th/id/OIP.wcZjPkH4FZD5QYi_2kfxxAHaLS?pid=ImgDet&rs=1",
@@ -37,6 +40,7 @@ const books = [
   },
   {
     id: 4,
+    key: 4,
     title: "To Kill a Mockingbird",
     imgURL: "https://cdn2.penguin.com.au/covers/original/9780434020485.jpg",
     price: "$15.49",
@@ -48,6 +52,7 @@ const books = [
   },
   {
     id: 5,
+    key: 5,
     title: "War and Peace",
     imgURL:
       "https://th.bing.com/th/id/R.0a63a714b18790def24527e3f3a2b9b9?rik=uOkQUfsbQVeb5Q&riu=http%3a%2f%2fbookcoverarchive.com%2fwp-content%2fuploads%2famazon%2fwar_and_peace-275x413.jpg&ehk=0YN%2bUfrEnwIloGnVjOH0lMmOdgVQ5%2bv5XaDfjaZglOU%3d&risl=&pid=ImgRaw&r=0",
@@ -60,6 +65,7 @@ const books = [
   },
   {
     id: 6,
+    key: 6,
     title: "Balladz",
     imgURL:
       "https://th.bing.com/th/id/OIP.AAZRAr_PlxEpucP6HUqK7gHaLQ?pid=ImgDet&rs=1",
@@ -72,6 +78,7 @@ const books = [
   },
   {
     id: 7,
+    key: 7,
     title: "The Great Gatsby",
     author: "F. Scott Fitzgerald",
     price: "$13.99",
@@ -84,6 +91,7 @@ const books = [
   },
   {
     id: 8,
+    key: 8,
     title: "Crime and Punishment",
     author: "Fyodor Dostoyevsky",
     publisher: "Vintage Classics",
@@ -96,6 +104,7 @@ const books = [
   },
   {
     id: 9,
+    key: 9,
     title: "The Catcher in the Rye",
     author: "J.D. Salinger",
     publisher: "Little, Brown and Company",
@@ -108,4 +117,4 @@ const books = [
   },
 ];
 
-export default books;
+export default Books;

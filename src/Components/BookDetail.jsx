@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Descriptions } from "antd";
 import { BackwardOutlined } from "@ant-design/icons";
-import books from "../Data/books";
+import Books from "../Data/Books";
+import { Link } from "react-router-dom";
 
 function BookDetail(props) {
-  const book = props.book;
+  const book = props.bookitem;
 
   return (
     <div>
-      <Button type="primary" icon={<BackwardOutlined />}>
-        Back
-      </Button>
+      <Link to="/">
+        <Button type="primary" icon={<BackwardOutlined />}>
+          Back
+        </Button>
+      </Link>
       <div>
         <div>
           <img src={book.imgURL} alt={book.title} />
@@ -21,7 +24,9 @@ function BookDetail(props) {
               {book.publisher}
             </Descriptions.Item>
             <Descriptions.Item label="Price">{book.price}</Descriptions.Item>
-            <Descriptions.Item label="Status">{book.status > 0? book.status : "Out of Stock"}</Descriptions.Item>
+            <Descriptions.Item label="Status">
+              {book.status > 0 ? book.status : "Out of Stock"}
+            </Descriptions.Item>
           </Descriptions>
           <Descriptions bordered>
             <Descriptions.Item label="Introduction">
