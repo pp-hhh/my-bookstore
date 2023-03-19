@@ -4,23 +4,24 @@ import HeaderInfo from "../Components/HeaderInfo";
 import SideBar from "../Components/SideBar";
 import SearchBar from "../Components/SearchBar";
 import OrderList from "../Components/OrderList";
+import Footer from "../Components/Footer";
 
 const { Content } = Layout;
 
 function OrderView() {
   return (
-    <div>
+    <div className="View">
       <HeaderInfo />
-      <Layout>
-        <Layout>
+      <Layout className="middle-part">
+        <Layout className="body">
           <SideBar />
           <Content>
             <h3>My Order</h3>
-            <SearchBar />
             <OrderList />
           </Content>
         </Layout>
       </Layout>
+      <Footer />
     </div>
   );
 }

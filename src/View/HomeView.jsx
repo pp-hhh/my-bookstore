@@ -5,11 +5,10 @@ import SideBar from "../Components/SideBar";
 import "../css/home.css";
 import BookCarousel from "../Components/BookCarousel";
 import BookList from "../Components/BookList";
-import SearchBar from "../Components/SearchBar";
-import Foot from "../Components/Foot";
+import Footer from "../Components/Footer";
 import Books from "../Data/Books";
 
-const { Header, Content, Footer } = Layout;
+const { Content } = Layout;
 
 function HomeView() {
   const [list, setList] = useState(Books);
@@ -30,21 +29,18 @@ function HomeView() {
   }
 
   return (
-    <div>
-      <HeaderInfo />
-      <Layout>
+    <div className="View">
+      <HeaderInfo searchClick={filterBook} />
+      <Layout className="middle-part">
         <Layout className="body">
           <SideBar />
           <Content>
-            <SearchBar className="searchBar" onClick={filterBook} />
             <BookCarousel />
             <BookList books={list} />
           </Content>
         </Layout>
-        <Footer>
-          <Foot />
-        </Footer>
       </Layout>
+      <Footer />
     </div>
   );
 }

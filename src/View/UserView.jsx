@@ -2,26 +2,24 @@ import React from "react";
 import HeaderInfo from "../Components/HeaderInfo";
 import SideBar from "../Components/SideBar";
 import { Layout } from "antd";
-import Foot from "../Components/Foot";
+import Footer from "../Components/Footer";
 import UserProfile from "../Components/UserProfile";
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 
-function UserView() {
+function UserView(props) {
   return (
-    <div>
+    <div className="View">
       <HeaderInfo />
-      <Layout>
+      <Layout className="middle-part">
         <Layout className="body">
           <SideBar />
           <Content>
-            <UserProfile user_id={1} />
+            <UserProfile user_id={props.id} />
           </Content>
         </Layout>
-        <Footer>
-          <Foot />
-        </Footer>
       </Layout>
+      <Footer />
     </div>
   );
 }

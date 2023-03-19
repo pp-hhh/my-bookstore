@@ -11,9 +11,10 @@ function BookList(props) {
       pagination={{
         position,
         align,
+        pageSize: 8,
       }}
       grid={{
-        gutter: 16,
+        gutter: 56,
         column: 4,
       }}
       dataSource={props.books}

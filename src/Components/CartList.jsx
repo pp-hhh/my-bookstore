@@ -6,15 +6,16 @@ const { Column, ColumnGroup } = Table;
 
 function CartList() {
   return (
-    <div>
+    <div className="cartlist-container">
       <Table dataSource={carts}>
         <ColumnGroup title="Book">
           <Column
             title="Cover"
             dataIndex="imgURL"
             key="imgURL"
+            width="120px"
             render={(imgURL) => {
-              return <img src={imgURL} alt="" style={{ width: "20%" }} />;
+              return <img src={imgURL} alt="" className="cartlist-img" />;
             }}
           />
           <Column
@@ -22,7 +23,11 @@ function CartList() {
             dataIndex="title"
             key="title"
             render={(title) => {
-              return <Button type="text">{title}</Button>;
+              return (
+                <Button type="text" className="cartlist-title">
+                  {title}
+                </Button>
+              );
             }}
           />
         </ColumnGroup>
@@ -33,20 +38,29 @@ function CartList() {
           render={(amount) => {
             return (
               <InputNumber
-                style={{ width: "100%" }}
+                style={{ width: "75%" }}
                 defaultValue={amount}
                 min={0}
               />
             );
           }}
         />
-        <Column title="Price" dataIndex="price" key="price" />
+        <Column
+          title="Price"
+          dataIndex="price"
+          key="price"
+          className="cartlist-price"
+        />
         <Column
           title="Action"
           dataIndex="action"
           key="action"
           render={(action) => {
-            return action ? <Button type="dashed">Delete</Button> : null;
+            return action ? (
+              <Button type="text" className="cartlist-action">
+                Delete
+              </Button>
+            ) : null;
           }}
         />
       </Table>

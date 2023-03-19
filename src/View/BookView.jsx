@@ -2,12 +2,12 @@ import React from "react";
 import { Layout } from "antd";
 import SideBar from "../Components/SideBar";
 import HeaderInfo from "../Components/HeaderInfo";
-import Foot from "../Components/Foot";
+import Footer from "../Components/Footer";
 import BookDetail from "../Components/BookDetail";
 import { useParams } from "react-router-dom";
 import Books from "../Data/Books";
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 
 function BookView() {
   const { id } = useParams();
@@ -16,22 +16,18 @@ function BookView() {
     return item.key === Number(id);
   });
 
-  console.log(book);
-
   return (
-    <div>
+    <div className="View">
       <HeaderInfo />
-      <Layout>
+      <Layout className="middle-part">
         <Layout className="body">
           <SideBar style={{ padding: "0 50px" }} />
           <Content>
             <BookDetail bookitem={book} />
           </Content>
         </Layout>
-        <Footer>
-          <Foot />
-        </Footer>
       </Layout>
+      <Footer />
     </div>
   );
 }

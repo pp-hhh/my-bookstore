@@ -69,7 +69,7 @@ const Books = [
     title: "Balladz",
     imgURL:
       "https://th.bing.com/th/id/OIP.AAZRAr_PlxEpucP6HUqK7gHaLQ?pid=ImgDet&rs=1",
-    price: "$20",
+    price: "$20.00",
     author: "Sharon Olds",
     publisher: "Knopf Doubleday Publishing Group",
     status: 100,
@@ -114,6 +114,32 @@ const Books = [
       "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1398034300l/5107.jpg",
     introduction:
       "The Catcher in the Rye is a 1951 novel by J.D. Salinger. A controversial novel originally published for adults, it has since become popular with adolescent readers for its themes of teenage angst and alienation. It has been translated into almost all of the world's major languages. Around one million copies are sold each year, with total sales of more than 65 million books. The novel's protagonist Holden Caulfield has become an icon for teenage rebellion.",
+  },
+  {
+    id: 10,
+    key: 10,
+    title: "The Story of the Stone",
+    author: "Cao Xueqin",
+    publisher: "Penguin Publishing Group",
+    price: "$20.00",
+    status: 100,
+    imgURL:
+      "https://prodimage.images-bn.com/pimages/9780140443707_p0_v2_s600x595.jpg",
+    introduction:
+      "Divided into five volumes, of which The Warning Voice is the third, it charts the glory and decline of the illustrious Jia family (a story which closely accords with the fortunes of the author's own family). The two main characters, Bao-yu and Dai-yu, are set against a rich tapestry of humour, realistic detail and delicate poetry, which accurately reflects the ritualized hurly-burly of Chinese family life. But over and above the novel hangs the constant reminder that there is another plane of existence - a theme which affirms the Buddhist belief in a supernatural scheme of things.",
+  },
+  {
+    id: 11,
+    key: 11,
+    title: "Still Life",
+    author: "Doan Ly",
+    publisher: "Chronicle Books LLC",
+    price: "$26.95",
+    status: 100,
+    imgURL:
+      "https://prodimage.images-bn.com/lf?set=key%5Bresolve.pixelRatio%5D,value%5B1%5D&set=key%5Bresolve.width%5D,value%5B600%5D&set=key%5Bresolve.height%5D,value%5B10000%5D&set=key%5Bresolve.imageFit%5D,value%5Bcontainerwidth%5D&set=key%5Bresolve.allowImageUpscaling%5D,value%5B0%5D&set=key%5Bresolve.format%5D,value%5Bwebp%5D&source=url%5Bhttps://prodimage.images-bn.com/pimages/9781797222622_p0_v1_s600x595.jpg%5D&scale=options%5Blimit%5D,size%5B600x10000%5D&sink=format%5Bwebp%5D",
+    introduction:
+      "Ly's stunning work elevates floral design to an art form. While photographs of her floral vignettes are reminiscent of old masters' still life paintings, her playful and innovative use of color and lighting are decidedly contemporary.\nThis spectacular collection of Ly's own exquisite photographs of her still life creations is unlike any other floral design book. Still Life captures Ly's unique and inspiring aesthetic, which has drawn a dedicated following on social media. Also included is a custom design charette by Ly that provides insight into the style elements that she employs, including information on how to mix flowers, color, scale, texture, vases, accessories, and lighting to create original floral displays, settings, and events.",
   },
 ];
 

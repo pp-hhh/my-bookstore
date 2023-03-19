@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { Button, Form, Input } from "antd";
-import Books from "../Data/Books";
+import { Button, Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-
-const { Search } = Input;
 
 function SearchBar(props) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,13 +17,19 @@ function SearchBar(props) {
   }
 
   return (
-    <div>
+    <div className="search-container">
       <Input
-        placeholder="Input book name here."
+        className="search-input"
+        placeholder="Search by author, title"
         value={searchTerm}
         onChange={handleChange}
       />
-      <Button type="primary" onClick={handleSubmit}>
+      <Button
+        className="search-button"
+        size="middle"
+        type="text"
+        onClick={handleSubmit}
+      >
         <SearchOutlined />
       </Button>
     </div>

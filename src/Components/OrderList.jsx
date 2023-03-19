@@ -6,15 +6,16 @@ const { Column, ColumnGroup } = Table;
 
 function OrderList() {
   return (
-    <div>
+    <div className="orderlist-container">
       <Table dataSource={Orders}>
         <ColumnGroup title="Book">
           <Column
             title="Cover"
             dataIndex="imgURL"
             key="imgURL"
+            width="120px"
             render={(imgURL) => {
-              return <img src={imgURL} alt="" style={{ width: "20%" }} />;
+              return <img src={imgURL} alt="" className="orderlist-img" />;
             }}
           />
           <Column
@@ -22,13 +23,17 @@ function OrderList() {
             dataIndex="title"
             key="title"
             render={(title) => {
-              return <Button type="text">{title}</Button>;
+              return (
+                <Button type="text" className="orderlist-title">
+                  {title}
+                </Button>
+              );
             }}
           />
         </ColumnGroup>
-        <Column title="Amount" dataIndex="amount" key="amount" />
-        <Column title="Price" dataIndex="price" key="price" />
-        <Column title="Purchase Time" dataIndex="time" key="time" />
+        <Column title="Amount" dataIndex="amount" key="amount" className="orderlist-amount" />
+        <Column title="Price" dataIndex="price" key="price" className="orderlist-price"/>
+        <Column title="Purchase Time" dataIndex="time" key="time" className="orderlist-time"/>
       </Table>
     </div>
   );
