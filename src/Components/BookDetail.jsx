@@ -47,6 +47,14 @@ function BookDetail(props) {
           </Descriptions>
         </div>
       </div>
+      <div className="btn-group">
+        <Button type="text" className="add-cart-btn">
+          Add to my cart
+        </Button>
+        <Button type="text" className="purchase-btn">
+          Purchase now
+        </Button>
+      </div>
     </div>
   );
 }

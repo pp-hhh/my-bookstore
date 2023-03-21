@@ -1,24 +1,18 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import {
   UserOutlined,
   BookOutlined,
   SolutionOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
-// import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import { Layout, Menu, theme } from "antd";
+import { Layout, Menu } from "antd";
 import "../css/index.css";
-import { fontSize } from "@mui/system";
-// import { faBorderNone } from "@fortawesome/free-solid-svg-icons";
 
 const { Sider } = Layout;
 
-function SideBar() {
-  const location = useLocation();
-  const current = location.pathname;
-
-  // console.log(current);
+function SideBar(props) {
+  const current = props.cur_key;
 
   return (
     <div className="siderbar-container">
@@ -36,7 +30,6 @@ function SideBar() {
       >
         <Menu mode="inline" selectedKeys={[current]}>
           <Menu.Item key="/">
-            {/* <AccountCircleOutlinedIcon className="sidebar-icon"/> */}
             <BookOutlined
               style={{ fontSize: "20px" }}
               className="sidebar-icon"
@@ -54,55 +47,58 @@ function SideBar() {
             <Link to="/" />
           </Menu.Item>
           <Menu.Item key="/Cart">
-            <Link to="/Cart" />
-            <ShoppingCartOutlined
-              className="sidebar-icon"
-              style={{ fontSize: "20px" }}
-            />
-            <label
-              className="sidebar-label"
-              style={
-                current === "/Cart"
-                  ? { fontWeight: "initial" }
-                  : { fontWeight: "lighter" }
-              }
-            >
-              Cart
-            </label>
+            <Link to="/Cart">
+              <ShoppingCartOutlined
+                className="sidebar-icon"
+                style={{ fontSize: "20px" }}
+              />
+              <label
+                className="sidebar-label"
+                style={
+                  current === "/Cart"
+                    ? { fontWeight: "initial" }
+                    : { fontWeight: "lighter" }
+                }
+              >
+                Cart
+              </label>
+            </Link>
           </Menu.Item>
           <Menu.Item key="/Order">
-            <Link to="/Order" />
-            <SolutionOutlined
-              className="sidebar-icon"
-              style={{ fontSize: "20px" }}
-            />
-            <label
-              className="sidebar-label"
-              style={
-                current === "/Order"
-                  ? { fontWeight: "initial" }
-                  : { fontWeight: "lighter" }
-              }
-            >
-              Orders
-            </label>
+            <Link to="/Order">
+              <SolutionOutlined
+                className="sidebar-icon"
+                style={{ fontSize: "20px" }}
+              />
+              <label
+                className="sidebar-label"
+                style={
+                  current === "/Order"
+                    ? { fontWeight: "initial" }
+                    : { fontWeight: "lighter" }
+                }
+              >
+                Orders
+              </label>
+            </Link>
           </Menu.Item>
           <Menu.Item key="/Profile">
-            <UserOutlined
-              className="sidebar-icon"
-              style={{ fontSize: "20px" }}
-            />
-            <label
-              className="sidebar-label"
-              style={
-                current === "/Profile"
-                  ? { fontWeight: "initial" }
-                  : { fontWeight: "lighter" }
-              }
-            >
-              Profile
-            </label>
-            <Link to="/Profile" />
+            <Link to="/Profile">
+              <UserOutlined
+                className="sidebar-icon"
+                style={{ fontSize: "20px" }}
+              />
+              <label
+                className="sidebar-label"
+                style={
+                  current === "/Profile"
+                    ? { fontWeight: "initial" }
+                    : { fontWeight: "lighter" }
+                }
+              >
+                Profile
+              </label>
+            </Link>
           </Menu.Item>
         </Menu>
       </Sider>

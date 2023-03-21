@@ -9,7 +9,6 @@ function Book(props) {
     <Link to={`/Book/${props.item.id}`}>
       <div className="book-wrapper">
         <Card
-          // style={{ width: 175 }}
           cover={
             <img
               src={props.item.imgURL}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button, Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 
@@ -14,6 +15,7 @@ function SearchBar(props) {
     event.preventDefault();
 
     props.onClick(searchTerm);
+    
   }
 
   return (
@@ -24,14 +26,16 @@ function SearchBar(props) {
         value={searchTerm}
         onChange={handleChange}
       />
-      <Button
-        className="search-button"
-        size="middle"
-        type="text"
-        onClick={handleSubmit}
-      >
-        <SearchOutlined />
-      </Button>
+      <Link to="/">
+        <Button
+          className="search-button"
+          size="middle"
+          type="text"
+          onClick={handleSubmit}
+        >
+          <SearchOutlined />
+        </Button>
+      </Link>
     </div>
   );
 }

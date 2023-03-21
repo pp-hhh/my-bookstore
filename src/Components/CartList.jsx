@@ -7,6 +7,7 @@ const { Column, ColumnGroup } = Table;
 function CartList() {
   return (
     <div className="cartlist-container">
+      <h3>My Shopping Cart</h3>
       <Table dataSource={carts}>
         <ColumnGroup title="Book">
           <Column
@@ -64,14 +65,6 @@ function CartList() {
           }}
         />
       </Table>
-      <div className="btn-group">
-        <Button type="text" className="add-cart-btn">
-          Add to my cart
-        </Button>
-        <Button type="text" className="purchase-btn">
-          Purchase now
-        </Button>
-      </div>
     </div>
   );
 }

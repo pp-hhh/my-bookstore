@@ -7,6 +7,7 @@ const { Column, ColumnGroup } = Table;
 function OrderList() {
   return (
     <div className="orderlist-container">
+      <h3>My Order</h3>
       <Table dataSource={Orders}>
         <ColumnGroup title="Book">
           <Column
@@ -31,9 +32,24 @@ function OrderList() {
             }}
           />
         </ColumnGroup>
-        <Column title="Amount" dataIndex="amount" key="amount" className="orderlist-amount" />
-        <Column title="Price" dataIndex="price" key="price" className="orderlist-price"/>
-        <Column title="Purchase Time" dataIndex="time" key="time" className="orderlist-time"/>
+        <Column
+          title="Amount"
+          dataIndex="amount"
+          key="amount"
+          className="orderlist-amount"
+        />
+        <Column
+          title="Price"
+          dataIndex="price"
+          key="price"
+          className="orderlist-price"
+        />
+        <Column
+          title="Purchase Time"
+          dataIndex="time"
+          key="time"
+          className="orderlist-time"
+        />
       </Table>
     </div>
   );
