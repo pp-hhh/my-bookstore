@@ -66,6 +66,24 @@ h3 {
     border: 1px solid #f5f5f5;
 }
 
+.add-cart-btn {
+    width: 135px;
+    font-family: "Montserrat";
+    border: 1px solid #8f8f8f;
+    margin-top: 0;
+    margin-left: 35%;
+    margin-right: 5%;
+}
+
+.purchase-btn {
+    width: 130px;
+    font-family: "Montserrat";
+    border: 1px solid #8f8f8f;
+    margin-top: 0;
+    margin-right: 30%;
+    margin-left: 0%;
+}
+
 /* Order List */
 .orderlist-img {
     width: 35%;
