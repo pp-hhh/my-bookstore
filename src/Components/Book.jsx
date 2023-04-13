@@ -11,7 +11,7 @@ function Book(props) {
         <Card
           cover={
             <img
-              src={props.item.imgURL}
+              src={props.item.image}
               alt={props.item.imgalt}
               style={{ height: "250px", width: "100%", borderRadius: "10px" }}
             />

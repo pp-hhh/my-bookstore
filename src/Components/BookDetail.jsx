@@ -6,9 +6,13 @@ import { Link } from "react-router-dom";
 function BookDetail(props) {
   const book = props.bookitem;
 
+  function handleClick(){
+    props.addCart(book);
+  }
+
   return (
     <div className="bookdetail-container">
-      <Link to="/">
+      <Link to="/Home">
         <Button type="text" icon={<SearchOutlined />} className="back-btn">
           Back
         </Button>
@@ -18,7 +22,7 @@ function BookDetail(props) {
           <h3 className="bookdetail-title">{book.title}</h3>
           <div className="bookdetail-part1">
             <div className="bookdetail-img">
-              <img src={book.imgURL} alt={book.title} className="book-img" />
+              <img src={book.image} alt={book.title} className="book-img" />
             </div>
             <div className="bookdetail-description1">
               <Descriptions bordered className="book-info" column={1}>
@@ -48,7 +52,7 @@ function BookDetail(props) {
         </div>
       </div>
       <div className="btn-group">
-        <Button type="text" className="add-cart-btn">
+        <Button type="text" className="add-cart-btn" onClick={handleClick}>
           Add to my cart
         </Button>
         <Button type="text" className="purchase-btn">

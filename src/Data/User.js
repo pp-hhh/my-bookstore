@@ -7,6 +7,7 @@ const User = [
       lName: "Cat",
     },
     Twitter: "@TomCat",
+    passwd: 123456,
     Avatar: "https://cdn-icons-png.flaticon.com/512/2922/2922561.png",
     Notes: "This is a naughty cat.",
   },

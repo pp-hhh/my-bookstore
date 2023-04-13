@@ -12,7 +12,7 @@ function HeaderInfo(props) {
   }
 
   return (
-    <div>
+    (<div>
       <nav className="navbar">
         <Link to="/" className="navbar-brand">
           Booksy
@@ -20,7 +20,7 @@ function HeaderInfo(props) {
         <SearchBar onClick={handleSearch} />
         <UserAvatar id={user_id} />
       </nav>
-    </div>
+    </div>)
   );
 }
 
