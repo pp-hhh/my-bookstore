@@ -12,7 +12,7 @@ function BookDetail(props) {
 
   return (
     <div className="bookdetail-container">
-      <Link to="/Home">
+      <Link to="/">
         <Button type="text" icon={<SearchOutlined />} className="back-btn">
           Back
         </Button>

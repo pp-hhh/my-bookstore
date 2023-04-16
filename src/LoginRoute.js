@@ -7,35 +7,24 @@ function LoginRoute(props) {
     const [hasAuthed, setHasAuthed] = useState(false);
 
     function checkAuth(data){
-        if(data.message === "OK"){
+        if(data.status >= 0){
+            console.log("in login route");
             setIsAuth(true);
             setHasAuthed(true);
         }else{
             setIsAuth(false);
             setHasAuthed(true);
-            localStorage.removeItem("user");
         }
     }
 
     useEffect(() => {
+        // console.log("login check session");
         userService.checkSession(checkAuth);
     }, []);
 
 
-    // const { component: Component, path = "/", exact = false, strict = false } = props;
-
     if(!hasAuthed) return null;
 
-    // return (<Route path={path} render={props => (
-    //     isAuth ? (
-    //         <Navigate to={{
-    //             pathname: '/',
-    //             state: {from: props.location}
-    //         }}/>
-    //     ) : (
-    //         <Component />
-    //     )
-    // )}/>)
     return (isAuth ? <Navigate to="/" /> : <Outlet />)
 }
 

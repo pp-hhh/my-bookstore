@@ -30,7 +30,6 @@ let postRequest = (url, json, callback) => {
 
     let opts = {
         method: "POST",
-
         headers: {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*'
@@ -39,18 +38,21 @@ let postRequest = (url, json, callback) => {
         body: JSON.stringify(json),
     };
 
+    // let ret = false;
+
     fetch(url,opts)
         .then((response) => {
             return response.json()
         })
         .then((data) => {
-            console.log(data);
-            console.log("test");
             callback(data);
+            // console.log("in post request, ret = " + ret);
         })
         .catch((error) => {
             console.log(error);
         });
+
+    // return ret;
 };
 
 export {postRequest,postRequest_v2};

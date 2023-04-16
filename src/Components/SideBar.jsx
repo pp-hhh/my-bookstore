@@ -29,7 +29,8 @@ function SideBar(props) {
         }}
       >
         <Menu mode="inline" selectedKeys={[current]}>
-          <Menu.Item key="/Home">
+          <Menu.Item key="/">
+            <Link to="/" />
             <BookOutlined
               style={{ fontSize: "20px" }}
               className="sidebar-icon"
@@ -37,14 +38,14 @@ function SideBar(props) {
             <label
               className="sidebar-label"
               style={
-                current === "/Home"
+                current === "/"
                   ? { fontWeight: "initial" }
                   : { fontWeight: "lighter" }
               }
             >
               Books
             </label>
-            <Link to="/Home" />
+
           </Menu.Item>
           <Menu.Item key="/Cart">
             <Link to="/Cart">

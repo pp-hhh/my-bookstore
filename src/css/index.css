@@ -122,11 +122,6 @@ h3 {
     width: 100%;
 }
 
-/* 
-.MuiFormControl-root MuiTextField-root user-fname css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
-    padding-right: 100px;
-} */
-
 :where(.css-dev-only-do-not-override-ph9edi).ant-form label {
     font-family: "Montserrat";
 }

@@ -1,32 +1,30 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute'
 import LoginRoute from "./LoginRoute";
 import HomeView from "./View/HomeView";
 import LogView from './View/LogView'
-import {history} from "./utils/history";
+import RegisterView from './View/RegisterView'
 import BookView from "./View/BookView";
 import CartView from "./View/CartView";
 import OrderView from "./View/OrderView";
 import UserView from "./View/UserView";
+import { ToastContainer } from 'react-toastify';
 
 
 function BasicRoute(props){
-    history.listen((location, action) => {
-        // clear alert on location change
-        console.log(location,action);
-    });
-
-
 
     return (
-        <Router history={history}>
+        <Router>
             <Routes>
                 <Route path="/" element={<PrivateRoute />} >
                     <Route path="/" element={<HomeView />} />
                 </Route>
                 <Route path="/Login" element={<LoginRoute />}>
                     <Route path="/Login" element={<LogView />} />
+                </Route>
+                <Route path="/Register" element={<LoginRoute />}>
+                    <Route path="/Register" element={<RegisterView />} />
                 </Route>
                 <Route path="/Book/:id" element={<PrivateRoute />} >
                     <Route path="/Book/:id" element={<BookView />} />
@@ -41,6 +39,7 @@ function BasicRoute(props){
                     <Route path="/Profile" element={<UserView />} />
                 </Route>
             </Routes>
+            <ToastContainer position='top-center'/>
         </Router>
     )
 }

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 import FormRow from "../Components/FormRow";
 import { toast } from "react-toastify";
 import "../css/login.css";
@@ -22,9 +23,12 @@ function LogView() {
     });
   }
 
-  function toggleMember() {
-    setValues({ ...values, isMember: !values.isMember });
+  function handleClick(){
+    setValues(initialState);
+    window.location.replace("/Register");
   }
+
+  const navigate = useNavigate();
 
   function onSubmit(e) {
     e.preventDefault();
@@ -34,37 +38,8 @@ function LogView() {
       return;
     }
 
-    userService.login(username, password);
+    userService.login({username, password});
   }
-
-  //   const endpoint = "http://localhost:8080/Login";
-  //   const body = { username, password };
-  //
-  //   fetch(endpoint, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(body),
-  //     origin: 'http://localhost:3000'
-  //   })
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     // 处理后端返回的数据
-  //     if (data.message === "OK") {
-  //       // 登录成功，跳转到用户主页
-  //       window.location.href = '/Home';
-  //     } else {
-  //       // 登录失败，显示错误消息
-  //       toast.error(data.message);
-  //     }
-  //   })
-  //   .catch(error => {
-  //     // 处理请求发生错误的情况
-  //     console.error(error);
-  //     toast.error('An error occurred while sending the request.');
-  //   });
-  // }
 
   return (
     <div className="LoginView">
@@ -92,9 +67,9 @@ function LogView() {
           submit
         </button>
         <p className="login-text">
-          {values.isMember ? "Not a member?" : "Already a member?"}
-          <button type="link" onClick={toggleMember} className="member-btn">
-            {values.isMember ? "Register" : "Login"}
+          Not a member?
+          <button type="link" onClick={handleClick} className="member-btn">
+            Register
           </button>
         </p>
       </form>

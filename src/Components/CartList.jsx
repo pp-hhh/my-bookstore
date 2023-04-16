@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Table, Button, InputNumber } from "antd";
-import carts from "../Data/cart";
-
 const { Column, ColumnGroup } = Table;
 
 function CartList() {
