@@ -29,23 +29,6 @@ function HomeView() {
         console.error(error);
       });
   }, []);
-
-  // function filterBook(searchvalue) {
-  //   if (searchvalue === "") {
-  //     setList(Books);
-  //   } else {
-  //     setList(
-  //       list.filter((item) => {
-  //         return (
-  //           item.title.toLowerCase().includes(searchvalue.toLowerCase()) ||
-  //           item.author.toLowerCase().includes(searchvalue.toLowerCase())
-  //         );
-  //       })
-  //     );
-  //   }
-  //   navigate("/");
-  // }
-
   function filterBook(){}
 
   return (

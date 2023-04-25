@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import FormRow from "../Components/FormRow";
 import { toast } from "react-toastify";
 import "../css/login.css";
@@ -23,11 +23,6 @@ function LogView() {
     });
   }
 
-  function handleClick(){
-    setValues(initialState);
-    window.location.replace("/Register");
-  }
-
   const navigate = useNavigate();
 
   function onSubmit(e) {
@@ -38,7 +33,19 @@ function LogView() {
       return;
     }
 
-    userService.login({username, password});
+    const callback = (data) => {
+      if(data.status >= 0){
+        localStorage.setItem("user", JSON.stringify(data.data));
+        toast.success("login success");
+        navigate("/Home");
+        const encryptedUser = btoa(JSON.stringify(data.data));
+        document.cookie = `user=${encryptedUser}; expires=0; path=/; SameSite=Strict; Secure`;
+      }else{
+        toast.error(data.msg);
+      }
+    }
+
+    userService.login({username, password}, callback);
   }
 
   return (
@@ -63,12 +70,15 @@ function LogView() {
           handleChange={handleChange}
         />
         {/* button */}
-        <button type="submit" className="login-btn btn">
+        <button type="submit" className="login-btn btn" >
           submit
         </button>
         <p className="login-text">
           Not a member?
-          <button type="link" onClick={handleClick} className="member-btn">
+          <button type="link" onClick={() => {
+            setValues(initialState);
+            navigate("/Register");
+          }} className="member-btn">
             Register
           </button>
         </p>

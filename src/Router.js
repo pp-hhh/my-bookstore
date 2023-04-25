@@ -20,6 +20,9 @@ function BasicRoute(props){
                 <Route path="/" element={<PrivateRoute />} >
                     <Route path="/" element={<HomeView />} />
                 </Route>
+                <Route path="/Home" element={<PrivateRoute />} >
+                    <Route path="/Home" element={<HomeView />} />
+                </Route>
                 <Route path="/Login" element={<LoginRoute />}>
                     <Route path="/Login" element={<LogView />} />
                 </Route>

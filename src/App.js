@@ -2,24 +2,23 @@ import "./App.css";
 import React from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import BasicRoute from "./Router";
+import { useEffect } from "react";
 
 function App() {
-  // const user_id = 1;
 
-  // return (
-  //   <Router>
-  //     <Routes>
-  //       <Route path="/Login" element={<LogView />}/>
-  //       <Route path="/Register" element={<RegisterView />}/>
-  //       <Route path="/Home" element={<HomeView />} />
-  //       <Route path="/Cart" element={<CartView />} />
-  //       <Route path="/Order" element={<OrderView />} />
-  //       <Route path="/Profile" element={<UserView id={user_id} />} />
-  //       <Route path="/Book/:id" element={<BookView />} />
-  //     </Routes>
-  //     <ToastContainer position='top-center'/>
-  //   </Router>
-  // );
+    // useEffect(() => {
+    //     const clearLocalStorage = () => {
+    //         window.removeEventListener('beforeunload', clearLocalStorage);
+    //         window.localStorage.clear();
+    //     };
+    //
+    //     window.addEventListener('beforeunload', clearLocalStorage);
+    //
+    //     return () => {
+    //         window.removeEventListener('beforeunload', clearLocalStorage);
+    //     };
+    // }, []);
+
 
     return <BasicRoute />
 }

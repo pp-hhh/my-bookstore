@@ -54,12 +54,9 @@ function BookView() {
   // }
   //add book to cart in localstorage
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []); // cart in localstorage
+  const [order, setOrder] = useState(JSON.parse(localStorage.getItem("order")) || []);
 
   function addBookToCart(book) {
-    // cart = JSON.parse(localStorage.getItem("cart"));
-    // if (cart === null) {
-    //   cart = [];
-    // }
     let new_book = {
       id: id,
       title: book.title,

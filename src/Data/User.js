@@ -34,5 +34,6 @@ export const defaultUser = {
     password: "",
     isMember: false,
     role: 0,
-    avatar: "https://tse4-mm.cn.bing.net/th/id/OIP-C.lnw-YAhsNmUy36i94EslIQHaHa?pid=ImgDet&rs=1",
+    avatar: "",
+    notes: ""
 }

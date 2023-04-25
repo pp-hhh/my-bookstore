@@ -2,12 +2,21 @@ import React from "react";
 import { Button, Descriptions } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import {purchaseBookDirectly} from "../services/OrderService";
 
 function BookDetail(props) {
   const book = props.bookitem;
 
   function handleClick(){
     props.addCart(book);
+    alert("add to cart successfully!");
+  }
+
+  function purchaseBook(){
+    const data = {bookId: book.id, userId: 1, quantity: 1};
+    purchaseBookDirectly(data);
+    //弹窗
+    alert("purchase successfully!");
   }
 
   return (
@@ -55,7 +64,7 @@ function BookDetail(props) {
         <Button type="text" className="add-cart-btn" onClick={handleClick}>
           Add to my cart
         </Button>
-        <Button type="text" className="purchase-btn">
+        <Button type="text" className="purchase-btn" onClick={purchaseBook}>
           Purchase now
         </Button>
       </div>

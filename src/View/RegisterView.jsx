@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import FormRow from "../Components/FormRow";
 import { toast } from "react-toastify";
 import "../css/login.css";
 import * as userService from "../services/userService";
-import { Cascader } from "antd";
 import { UserRole, defaultUser } from "../Data/User";
 
 function RegisterView() {
@@ -17,19 +17,24 @@ function RegisterView() {
     });
   }
 
-  function handleRoleChange(value) {
-    // console.log(Number(value));
-    setValues({
-      ...values,
-      role: Number(value),
-    });
-  }
+  const navigate = useNavigate();
 
-  function handleClick(){
-    setValues(defaultUser);
-    window.location.replace("/Login");
-  }
+  // function handleClick(){
+  //   setValues(defaultUser);
+  //   toast.success("Register success\n Login now");
+  //   navigate("/Login");
+  // }
 
+
+  const callback = (data) => {
+    if(data.status >= 0){
+      toast.success("Register success\n Login now");
+      navigate("/Login");
+    }
+    else{
+      toast.error("Register failed");
+    }
+  }
   function onSubmit(e) {
     e.preventDefault();
     const { username, email, password, isMember } = values;
@@ -37,9 +42,7 @@ function RegisterView() {
       toast.error("Please fill out all fields");
       return;
     }
-
-    // console.log(values);
-    userService.register(values);
+    userService.register(values, callback);
   }
 
   return (
@@ -70,20 +73,16 @@ function RegisterView() {
           value={values.password}
           handleChange={handleChange}
         />
-        {/* role */}
-        <div className="form-row">
-          <label htmlFor="role" className='form-label'>
-            Role
-          </label>
-          <Cascader options={UserRole} placeholder="select your role" className="role-selector" onChange={handleRoleChange}/>
-        </div>
         {/* button */}
-        <button type="submit" className="login-btn btn">
+        <button type="submit" className="login-btn btn" >
           submit
         </button>
         <p className="login-text">
           Already a member?
-          <button type="link" onClick={handleClick} className="member-btn">
+          <button type="link" onClick={() => {
+            setValues(defaultUser);
+            navigate("/Login");
+          }} className="member-btn">
             Login
           </button>
         </p>

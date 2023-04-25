@@ -131,8 +131,8 @@ label+.css-v4u5dn-MuiInputBase-root-MuiInput-root {
     font-family: "Montserrat";
 }
 
-.user-fname,
-.user-lname {
+.user-name,
+.user-email {
     width: 40%;
 }
 

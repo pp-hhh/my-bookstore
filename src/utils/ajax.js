@@ -1,4 +1,6 @@
+import * as axios from "browserslist";
 
+axios.defaults.withCredentials = true;
 
 let postRequest_v2 = (url, data, callback) => {
     let formData = new FormData();
@@ -27,7 +29,6 @@ let postRequest_v2 = (url, data, callback) => {
 };
 
 let postRequest = (url, json, callback) => {
-
     let opts = {
         method: "POST",
         headers: {
@@ -38,21 +39,20 @@ let postRequest = (url, json, callback) => {
         body: JSON.stringify(json),
     };
 
-    // let ret = false;
+    console.log(json);
 
     fetch(url,opts)
         .then((response) => {
             return response.json()
         })
         .then((data) => {
+            console.log("return data " + data.data);
             callback(data);
             // console.log("in post request, ret = " + ret);
         })
         .catch((error) => {
             console.log(error);
         });
-
-    // return ret;
 };
 
 export {postRequest,postRequest_v2};
