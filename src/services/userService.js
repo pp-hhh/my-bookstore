@@ -69,6 +69,8 @@ export const checkSession = async (callback) => {
         }
     }
 
+    console.log("cookieExists: " + cookieExists);
+
     //no login cookie
     if(!cookieExists){
         //clear local storage
@@ -83,7 +85,9 @@ export const checkSession = async (callback) => {
         return;
     }
 
-    const id = JSON.parse(user).id;
+    console.log("user: " + user);
+
+    const id = user.id;
 
     // console.log("id: " + id);
 
@@ -105,7 +109,7 @@ export const getUserInfo = (url, callback) => {
         .then((response) => response.json())
         .then((data) => {
             // console.log("test " + JSON.stringify(data.data));
-            callback(data.data);
+            callback(data);
         })
         .catch((error) => {
             console.error("Error:", error);

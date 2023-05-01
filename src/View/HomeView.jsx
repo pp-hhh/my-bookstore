@@ -13,7 +13,6 @@ const { Content } = Layout;
 
 function HomeView(props) {
   const [list, setList] = useState([]);
-  // const userInfo = JSON.stringify(props.userInfo);
   const userInfo = useOutletContext();
 
   const location = useLocation();
@@ -23,7 +22,6 @@ function HomeView(props) {
     const endpoint = "http://localhost:8080/api/books";
     function callback (data) {
       setList(data);
-      console.log(JSON.stringify(list));
     }
     getAllBooks(endpoint, callback);
   }, []);

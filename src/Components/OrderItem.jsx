@@ -7,6 +7,7 @@ const { Column, ColumnGroup } = Table;
 function OrderItem(props) {
     let orderItem = JSON.stringify(props.orderItem);
     let total_price = JSON.parse(orderItem).total_price;
+    total_price = total_price.toFixed(2);
     let purchase_time = JSON.parse(orderItem).time;
     orderItem = JSON.parse(orderItem).orderItemForms;
 

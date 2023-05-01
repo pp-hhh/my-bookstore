@@ -37,7 +37,7 @@ function LogView() {
       if(data.status >= 0){
         localStorage.setItem("user", JSON.stringify(data.data));
         toast.success("login success");
-        navigate("/Home");
+        navigate("/");
         const encryptedUser = btoa(JSON.stringify(data.data));
         document.cookie = `user=${encryptedUser}; expires=0; path=/; SameSite=Strict; Secure`;
       }else{

@@ -13,28 +13,6 @@ function PrivateRoute(props){
             // console.log("in checkAuth, data = " + JSON.stringify(data));
             setIsAuth(true);
             setHasAuthed(true);
-            // console.log("in checkAuth, data.data = " + JSON.stringify(data.data));
-            // const { username, email, password, role, avatar, notes } = JSON.parse(JSON.stringify(data.data));
-            // const updatedUser = {
-            //     username: username,
-            //     email: email,
-            //     password: password,
-            //     role: role,
-            //     avatar: avatar,
-            //     notes: notes
-            // };
-            // setUser({
-            //     ...user,
-            //     [username]: updatedUser[username],
-            //     [email]: updatedUser[email],
-            //     [password]: updatedUser[password],
-            //     [role]: updatedUser[role],
-            //     [avatar]: updatedUser[avatar],
-            //     [notes]: updatedUser[notes]
-            // })
-            // console.log("in checkAuth, user = " + JSON.stringify(user));
-            // setUser(JSON.stringify(data.data));
-            // props.setUserInfo(JSON.stringify(data.data));
         }else{
             setIsAuth(false);
             setHasAuthed(true);

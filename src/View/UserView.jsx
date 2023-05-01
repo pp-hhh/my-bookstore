@@ -7,6 +7,8 @@ import UserProfile from "../Components/UserProfile";
 import Footer from "../Components/Footer";
 import {getUserInfo} from "../services/userService";
 import {defaultUser} from "../Data/User";
+import * as userService from "../services/userService";
+import {toast} from "react-toastify";
 
 const { Content } = Layout;
 
@@ -15,28 +17,35 @@ function UserView(props) {
   const current = location.pathname;
   const user = JSON.parse(localStorage.getItem("user"));
   const username = user.username;
-  // console.log("in user view: " + username);
   const [userInfo, setUserInfo] = useState(defaultUser);
-    // let userInfo = {};
+  let initialUser;
 
   useEffect(() => {
       const endpoint = `http://localhost:8080/user/${username}`;
       function callback(data) {
-          let new_data = JSON.parse(JSON.stringify(data));
-          setUserInfo({
-                ...userInfo,
-                username: new_data.username,
-                email: new_data.email,
-                role: new_data.role,
-                avatar: new_data.avatar,
-                notes: new_data.notes
-            });
-          // userInfo = updatedUser;
-          console.log(new_data);
-          console.log(userInfo);
+          initialUser = data;
+          setUserInfo(data);
       }
       getUserInfo(endpoint, callback);
   }, [])
+
+    function changeUserInfo(name, value){
+      setUserInfo({...userInfo, [name]: value});
+    }
+
+    function saveBtnClick(){
+      const {username, email} = userInfo;
+      if(!username || !email){
+          toast.error("Please fill in all the required fields");
+      }else{
+          userService.changeInfo(userInfo);
+      }
+    }
+
+    function cancelChange(){
+      setUserInfo(initialUser);
+      window.location.reload();
+    }
 
 
   return (
@@ -46,7 +55,7 @@ function UserView(props) {
         <Layout className="body">
           <SideBar cur_key={current} />
           <Content>
-            <UserProfile user={userInfo} />
+            <UserProfile user={userInfo} updateUserInfo={changeUserInfo} saveChange={saveBtnClick} cancelChange={cancelChange}/>
           </Content>
         </Layout>
       </Layout>

@@ -35,7 +35,7 @@ function CartList(props) {
           function callback(data){
               props.setCart(data);
           }
-          purchaseCartItems(url, toBuyItems, callback).then();
+          purchaseCartItems(url, toBuyItems, callback).then(window.location.reload);
       }
   }
 
@@ -47,15 +47,15 @@ function CartList(props) {
               title="Select"
               dataIndex="cart_item_id"
               key="cart_item_id"
-              value={false}
-              render={(_, cart_item) => {
+              render={(cart_item_id) => {
                   return (
                       <Checkbox
+                          defaultChecked={false}
                           onChange={(e) => {
                               if(e.target.checked){
-                                  setToBuyItems([...toBuyItems, cart_item]);
+                                  setToBuyItems([...toBuyItems, cart_item_id]);
                               }else{
-                                    setToBuyItems(toBuyItems.filter((item) => item !== cart_item));
+                                    setToBuyItems(toBuyItems.filter((item) => item !== cart_item_id));
                               }
                           }
                           }

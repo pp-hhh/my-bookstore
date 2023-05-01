@@ -21,14 +21,14 @@ function OrderView() {
   useEffect(() => {
       const endpoint = `http://localhost:8080/order/${user_id}`;
       function callback(data){
+          data.sort((a, b) => new Date(b.time) - new Date(a.time));
           setOrders(data);
       }
       getOrders(endpoint, callback).then();
   }, [])
 
 
-
-  return (
+    return (
     <div className="View">
       <HeaderInfo />
       <Layout className="middle-part">

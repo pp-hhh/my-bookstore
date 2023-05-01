@@ -19,7 +19,7 @@ function HeaderInfo(props) {
 
   function handleUserClick() {
     setShowLogout(!showLogout);
-    console.log(showLogout);
+    // console.log(showLogout);
   }
 
 
