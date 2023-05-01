@@ -13,45 +13,18 @@ function BookView() {
 
   const [book, setBook] = useState([]);
 
-
   //get book detail
   useEffect(() => {
     fetch(`http://localhost:8080/api/book/${id}`)
       .then(response => response.json())
       .then(data => {
         setBook(data);
+        // console.log("book detail: " + JSON.stringify(data));
       })
       .catch(error => {
         console.error(error);
       });
   }, []);
-
-  //add book to cart
-  // function addBookToCart() {
-  //   fetch(`http://localhost:8080/api/cart/${id}`, {
-  //     method: "POST",
-  //     credentials: "include",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     origin: "http://localhost:3000",
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       // 处理后端返回的数据
-  //       if (data.message === "OK") {
-  //         // add succuessfully
-  //         alert("Add to cart successfully!");
-          
-  //       } else {
-  //         // add failed
-  //         alert("Add to cart failed!");
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }
   //add book to cart in localstorage
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []); // cart in localstorage
   const [order, setOrder] = useState(JSON.parse(localStorage.getItem("order")) || []);

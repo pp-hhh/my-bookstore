@@ -2,21 +2,39 @@ import React from "react";
 import { Button, Descriptions } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import {purchaseBookDirectly} from "../services/OrderService";
+import {addBooktoCart, purchaseBookDirectly} from "../services/bookService";
+import {toast} from "react-toastify";
 
 function BookDetail(props) {
   const book = props.bookitem;
+  const user = localStorage.getItem("user");
+  const user_id = JSON.parse(user).id;
 
+  //add to cart
   function handleClick(){
-    props.addCart(book);
-    alert("add to cart successfully!");
+    const data = {book_id: Number(book.id), adder_id: Number(user_id), number: 1};
+    const url = "http://localhost:8080/book/addtocart";
+    function callback(data){
+      if(data === true){
+        toast.success("add to cart successfully!");
+      }else{
+        toast.error("add to cart failed!");
+      }
+    }
+    addBooktoCart(url, data, callback).then();
   }
 
   function purchaseBook(){
-    const data = {bookId: book.id, userId: 1, quantity: 1};
-    purchaseBookDirectly(data);
-    //弹窗
-    alert("purchase successfully!");
+    const data = {bookId: Number(book.id), userId: Number(user_id), quantity: 1};
+    const url = "http://localhost:8080/book/purchaseDirectly";
+    function callback(data) {
+      if(data === true){
+        toast.success("purchase successfully!");
+      }else{
+        toast.error("purchase failed!");
+      }
+    }
+    purchaseBookDirectly(url, data, callback).then();
   }
 
   return (

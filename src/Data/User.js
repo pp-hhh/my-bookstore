@@ -31,8 +31,6 @@ export const UserRole = [
 export const defaultUser = {
     username: "",
     email: "",
-    password: "",
-    isMember: false,
     role: 0,
     avatar: "",
     notes: ""

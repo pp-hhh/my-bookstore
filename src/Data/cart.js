@@ -20,4 +20,15 @@ const carts = [
   },
 ];
 
+export const default_cartItem = {
+  id: 0,
+  book:{
+    id: 0,
+    title: "",
+    image: "",
+    price: 0,
+  },
+  number: 0
+}
+
 export default carts;

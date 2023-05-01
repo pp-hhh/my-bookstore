@@ -10,25 +10,6 @@ const default_url = "http://localhost:8080";
 export const login = (data, callback) => {
     return new Promise((resolve, reject) => {
         const url = default_url + `/Login`;
-        // const callback = (data) => {
-        //     if(data.status >= 0) {
-        //         localStorage.setItem('user', JSON.stringify(data.data));
-        //         //store data to cookie
-        //         // 设置Cookie的过期时间为2小时
-        //         // const expirationDate = new Date();
-        //         // expirationDate.setTime(expirationDate.getTime() + 2 * 60 * 60 * 1000);
-        //         // encode user info
-        //         const encryptedUser = btoa(JSON.stringify(data.data));
-        //         document.cookie = `user=${encryptedUser}; expires=0; path=/; SameSite=Strict; Secure`;
-        //         //refresh page
-        //         // window.location.replace("/");
-        //         // eslint-disable-next-line react-hooks/rules-of-hooks
-        //         useNavigate().push("/");
-        //     }
-        //     else{
-        //         toast.error(data.msg);
-        //     }
-        // };
         postRequest(url, data, callback);
     });
 };
@@ -104,15 +85,30 @@ export const checkSession = async (callback) => {
 
     const id = JSON.parse(user).id;
 
-    console.log("id: " + id);
+    // console.log("id: " + id);
 
     const url = default_url + `/checkSession`;
     postRequest(url, {id}, callback);
 };
 
-// export const checkSession = (callback) => {
-//     // const url = `${config.apiUrl}/checkSession`;
-//     const url = default_url + `/checkSession`;
-//     postRequest(url, {}, callback);
-// };
+export const getUserInfo = (url, callback) => {
+    let opts = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            'Access-Control-Allow-Origin': '*'
+        },
+        origin: 'http://localhost:3000',
+    }
+    fetch(url, opts)
+        .then((response) => response.json())
+        .then((data) => {
+            // console.log("test " + JSON.stringify(data.data));
+            callback(data.data);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}
 

@@ -39,14 +39,14 @@ let postRequest = (url, json, callback) => {
         body: JSON.stringify(json),
     };
 
-    console.log(json);
+    // console.log(json);
 
     fetch(url,opts)
         .then((response) => {
             return response.json()
         })
         .then((data) => {
-            console.log("return data " + data.data);
+            // console.log("return data " + data.data);
             callback(data);
             // console.log("in post request, ret = " + ret);
         })

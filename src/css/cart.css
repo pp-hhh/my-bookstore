@@ -1,0 +1,13 @@
+.cart-btn-group{
+    margin-top: 6%;
+    margin-bottom: 3%;
+}
+
+.cart-purchase-btn{
+    width: 130px;
+    font-family: "Montserrat";
+    border: 1px solid #8f8f8f;
+    margin-top: 0;
+    margin-right: 30%;
+    margin-left: 45%;
+}

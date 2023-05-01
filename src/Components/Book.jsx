@@ -12,7 +12,7 @@ function Book(props) {
           cover={
             <img
               src={props.item.image}
-              alt={props.item.imgalt}
+              alt={props.item.image}
               style={{ height: "250px", width: "100%", borderRadius: "10px" }}
             />
           }
