@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Navigate, Outlet } from 'react-router-dom';
 import * as userService from "./services/userService"
-import {defaultUser} from "./Data/User";
 
 function PrivateRoute(props){
     const [isAuth, setIsAuth] = useState(false);
@@ -9,7 +8,7 @@ function PrivateRoute(props){
     const [user, setUser] = useState({});
 
     function checkAuth(data){
-        if(data.status >= 0){
+        if(data !== null){
             // console.log("in checkAuth, data = " + JSON.stringify(data));
             setIsAuth(true);
             setHasAuthed(true);

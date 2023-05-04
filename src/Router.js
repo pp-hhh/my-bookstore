@@ -5,42 +5,16 @@ import LoginRoute from "./LoginRoute";
 import HomeView from "./View/HomeView";
 import LogView from './View/LogView'
 import RegisterView from './View/RegisterView'
-import BookView from "./View/BookView";
+import BookView from "./View/userView/BookView"
 import CartView from "./View/CartView";
 import OrderView from "./View/OrderView";
 import UserView from "./View/UserView";
 import { ToastContainer } from 'react-toastify';
-import {defaultUser} from "./Data/User";
+import StorageDetail from "./Components/admin/StorageDetail";
+import StorageDetailView from "./View/adminView/StorageDetailView";
 
 
 function BasicRoute(props){
-
-    // const [user, setUser] = useState(defaultUser);
-    //
-    // function updateUser(user_data) {
-    //     const { username, email, password, role, avatar, notes } = JSON.parse(user_data);
-    //     console.log("after parse: " + username);
-    //     const updatedUser = {
-    //         username: username,
-    //         email: email,
-    //         password: password,
-    //         role: role,
-    //         avatar: avatar,
-    //         notes: notes
-    //     };
-    //     setUser({
-    //         ...user,
-    //         [username]: updatedUser[username],
-    //         [email]: updatedUser[email],
-    //         [password]: updatedUser[password],
-    //         [role]: updatedUser[role],
-    //         [avatar]: updatedUser[avatar],
-    //         [notes]: updatedUser[notes]
-    //     })
-    //     console.log("after update: " + JSON.stringify(user));
-    // }
-
-
     return (
         <Router>
             <Routes>
@@ -67,6 +41,9 @@ function BasicRoute(props){
                 </Route>
                 <Route path="/Profile" element={<PrivateRoute />} >
                     <Route path="/Profile" element={<UserView />} />
+                </Route>
+                <Route path="/Storage/:id" element={<PrivateRoute />} >
+                    <Route path="/Storage/:id" element={<StorageDetailView />} />
                 </Route>
             </Routes>
             <ToastContainer position='top-center'/>

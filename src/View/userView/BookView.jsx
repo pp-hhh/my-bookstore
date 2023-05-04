@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
-import BookDetail from "../Components/BookDetail";
+import BookDetail from "../../Components/BookDetail";
 import { useParams } from "react-router-dom";
 import { Layout } from "antd";
-import HeaderInfo from "../Components/HeaderInfo";
-import SideBar from "../Components/SideBar";
-import Footer from "../Components/Footer";
+import HeaderInfo from "../../Components/HeaderInfo";
+import SideBar from "../../Components/SideBar";
+import Footer from "../../Components/Footer";
 
 const { Content } = Layout;
 

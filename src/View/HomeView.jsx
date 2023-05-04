@@ -8,43 +8,52 @@ import BookCarousel from "../Components/BookCarousel";
 import BookList from "../Components/BookList";
 import Footer from "../Components/Footer";
 import {getAllBooks} from "../services/bookService";
+import UserHomeView from "./userView/UserHomeView";
+import StorageView from "./adminView/StorageView";
 
 const { Content } = Layout;
 
 function HomeView(props) {
-  const [list, setList] = useState([]);
-  const userInfo = useOutletContext();
+  // const [list, setList] = useState([]);
+  // const userInfo = useOutletContext();
 
-  const location = useLocation();
-  const current = location.pathname;
+  const userInfo = localStorage.getItem("user");
+  const is_admin = JSON.parse(userInfo).role;
 
-  useEffect(() => {
-    const endpoint = "http://localhost:8080/api/books";
-    function callback (data) {
-      setList(data);
-    }
-    getAllBooks(endpoint, callback);
-  }, []);
+  // const location = useLocation();
+  // const current = location.pathname;
+
+  // useEffect(() => {
+  //   const endpoint = "http://localhost:8080/api/books";
+  //   function callback (data) {
+  //     setList(data);
+  //   }
+  //   getAllBooks(endpoint, callback);
+  // }, []);
 
 
 
   function filterBook(){}
 
+  // return (
+  //   <div className="View">
+  //     <HeaderInfo searchClick={filterBook} userInfo={userInfo} />
+  //     <Layout className="middle-part">
+  //       <Layout className="body">
+  //         <SideBar cur_key={current} />
+  //         <Content>
+  //           <BookCarousel />
+  //           <BookList books={list} />
+  //         </Content>
+  //       </Layout>
+  //     </Layout>
+  //     <Footer />
+  //   </div>
+  // );
   return (
-    <div className="View">
-      <HeaderInfo searchClick={filterBook} userInfo={userInfo} />
-      <Layout className="middle-part">
-        <Layout className="body">
-          <SideBar cur_key={current} />
-          <Content>
-            <BookCarousel />
-            <BookList books={list} />
-          </Content>
-        </Layout>
-      </Layout>
-      <Footer />
-    </div>
-  );
+      is_admin ?
+      <StorageView /> : <UserHomeView />
+  )
 }
 
 export default HomeView;

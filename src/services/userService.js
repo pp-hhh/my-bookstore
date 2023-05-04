@@ -53,7 +53,7 @@ export const changeInfo = (data) => {
     postRequest(url, data, callback);
 }
 
-export const checkSession = async (callback) => {
+export const checkSession = (callback) => {
     //check if cookie exists
     const cookieString = document.cookie;
     const cookies = cookieString.split(';');
@@ -69,7 +69,7 @@ export const checkSession = async (callback) => {
         }
     }
 
-    console.log("cookieExists: " + cookieExists);
+    // console.log("cookieExists: " + cookieExists);
 
     //no login cookie
     if(!cookieExists){
@@ -85,9 +85,11 @@ export const checkSession = async (callback) => {
         return;
     }
 
-    console.log("user: " + user);
+    // console.log("user: " + user);
 
-    const id = user.id;
+    // const id = user.id;
+    const id = JSON.parse(user).id;
+
 
     // console.log("id: " + id);
 

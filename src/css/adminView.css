@@ -1,0 +1,23 @@
+.storage-img{
+    width: 35%;
+    border-radius: 5%;
+}
+
+.storage-title{
+    font-family: "Montserrat";
+    text-align: center;
+}
+
+.storage-quantity{
+    font-family: "Montserrat";
+}
+
+.storage-price{
+    font-family: "Montserrat";
+    text-align: center;
+}
+
+.storage-action{
+    font-family: "Montserrat";
+    border: 1px solid #f5f5f5;
+}
