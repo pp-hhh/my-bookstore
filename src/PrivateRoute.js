@@ -13,6 +13,7 @@ function PrivateRoute(props){
             setIsAuth(true);
             setHasAuthed(true);
         }else{
+            // console.log("in checkAuth, data = " + JSON.stringify(data));
             setIsAuth(false);
             setHasAuthed(true);
         }

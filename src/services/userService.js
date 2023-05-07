@@ -38,9 +38,9 @@ export const logout = () => {
 };
 
 export const changeInfo = (data) => {
-    console.log(data);
+    // console.log(data);
     const url = default_url + `/User/ChangeInfo/${data.id}`;
-    console.log(url);
+    // console.log(url);
     const callback = (data) => {
         if(data.status >= 0) {
             localStorage.setItem('user', JSON.stringify(data.data));
@@ -75,13 +75,13 @@ export const checkSession = (callback) => {
     if(!cookieExists){
         //clear local storage
         localStorage.clear();
-        callback({status: -1, message: "No user"});
+        callback(null);
         return;
     }
 
     let user = localStorage.getItem("user");
     if(user === null){
-        callback({status: -1, message: "No user"});
+        callback(null);
         return;
     }
 

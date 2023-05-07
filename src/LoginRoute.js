@@ -7,7 +7,7 @@ function LoginRoute(props) {
     const [hasAuthed, setHasAuthed] = useState(false);
 
     function checkAuth(data){
-        if(data.status >= 0){
+        if(data !== null){
             console.log("in login route");
             setIsAuth(true);
             setHasAuthed(true);

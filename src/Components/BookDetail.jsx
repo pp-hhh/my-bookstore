@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, Descriptions } from "antd";
+import React, {useState} from "react";
+import {Button, Descriptions, InputNumber} from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import {addBooktoCart, purchaseBookDirectly} from "../services/bookService";
@@ -10,9 +10,15 @@ function BookDetail(props) {
   const user = localStorage.getItem("user");
   const user_id = JSON.parse(user).id;
 
+  const [bookNum, setBookNum] = useState(1);
+
+  function handleNumberChange(value){
+    setBookNum(value);
+  }
+
   //add to cart
   function handleClick(){
-    const data = {book_id: Number(book.id), adder_id: Number(user_id), number: 1};
+    const data = {book_id: Number(book.id), adder_id: Number(user_id), number: Number(bookNum)};
     const url = "http://localhost:8080/book/addtocart";
     function callback(data){
       if(data === true){
@@ -25,7 +31,7 @@ function BookDetail(props) {
   }
 
   function purchaseBook(){
-    const data = {bookId: Number(book.id), userId: Number(user_id), quantity: 1};
+    const data = {bookId: Number(book.id), userId: Number(user_id), quantity: Number(bookNum)};
     const url = "http://localhost:8080/book/purchaseDirectly";
     function callback(data) {
       if(data === true){
@@ -66,7 +72,15 @@ function BookDetail(props) {
                   {book.price}
                 </Descriptions.Item>
                 <Descriptions.Item label="Status">
-                  {book.status > 0 ? book.status : "Out of Stock"}
+                  {book.stock > 0 ? "Available" : "Out of Stock"}
+                </Descriptions.Item>
+                <Descriptions.Item label="Select number">
+                  <InputNumber
+                      style={{ width: "75%" }}
+                      defaultValue={1}
+                      min={1}
+                      onChange={(value) => handleNumberChange(value)}
+                  />
                 </Descriptions.Item>
               </Descriptions>
             </div>

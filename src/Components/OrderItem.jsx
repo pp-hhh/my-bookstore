@@ -9,6 +9,7 @@ function OrderItem(props) {
     let total_price = JSON.parse(orderItem).total_price;
     total_price = total_price.toFixed(2);
     let purchase_time = JSON.parse(orderItem).time;
+    // console.log(purchase_time);
     orderItem = JSON.parse(orderItem).orderItemForms;
 
 
@@ -54,7 +55,7 @@ function OrderItem(props) {
           key="book_price"
           className="orderlist-price"
           render={(price) => {
-            return <span>${price}</span>;
+            return <span>${price} /per book</span>;
           }}
         />
       </Table>

@@ -34,6 +34,7 @@ function CartList(props) {
           const url = `http://localhost:8080/api/cart/purchase/${user_id}`;
           function callback(data){
               props.setCart(data);
+              toast.success("Purchase successfully");
           }
           purchaseCartItems(url, toBuyItems, callback).then(window.location.reload);
       }
@@ -95,7 +96,7 @@ function CartList(props) {
             return (
               <InputNumber
                 style={{ width: "75%" }}
-                defaultValue={number}
+                defaultValue={cart_item.number}
                 min={0}
                 onChange={(value) => handleNumberChange(value, cart_item.cart_item_id)}
               />
