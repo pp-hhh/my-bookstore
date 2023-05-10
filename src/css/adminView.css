@@ -19,9 +19,17 @@
     text-align: center;
 }
 
-.storage-action{
+.storage-action,
+.delete-action{
     font-family: "Montserrat";
     border: 1px solid #f5f5f5;
+}
+
+.add-btn{
+    font-family: "Montserrat";
+    border: 1px solid #f5f5f5;
+    margin-left: 68%;
+    margin-top: 2.75%;
 }
 
 /* Book Storage Detail Info */
@@ -97,6 +105,10 @@
     width: 100%;
 }
 
-.storage-notes {
+.storage-introduction {
     width: 100%;
+}
+
+.user-content{
+    font-family: "Montserrat";
 }

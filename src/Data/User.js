@@ -18,5 +18,7 @@ export const defaultUser = {
     email: "",
     role: 0,
     avatar: "",
-    notes: ""
+    notes: "",
+    password: "",
+    confirmPassword: "",
 }

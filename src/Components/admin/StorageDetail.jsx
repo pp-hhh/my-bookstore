@@ -142,9 +142,9 @@ function StorageDetail(props){
                         multiline
                         row={4}
                         variant="standard"
-                        className="storage-notes"
-                        value={`    ${bookStorage.introduction}`}
-                        name="notes"
+                        className="storage-introduction"
+                        value={`${bookStorage.introduction}`}
+                        name="introduction"
                         inputProps={{ style: { width: '100%', fontSize: '15px' } }}
                         onChange={handleChange}
                     />

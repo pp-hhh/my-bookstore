@@ -1,15 +1,33 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import { Table, Button, InputNumber, Checkbox } from "antd";
 import "../../css/adminView.css";
 import {Link} from "react-router-dom";
+import {addStorageItem, deleteStorageItem} from "../../services/adminService";
 const {Column, ColumnGroup } = Table;
 
 function StorageList(props){
     const storageList = props.storageList;
 
+
+    function handleDelete(id){
+        const url =  `http://localhost:8080/storage/delete/${id}`;
+        deleteStorageItem(url, {}, (data) => props.setStorages(data)).then(window.location.reload);
+    }
+
+    const navigate = useNavigate();
+
+    function handleClick(){
+        navigate("/Storage/add");
+    }
+
     return (
         <div className="storage-container">
-            <h3>Storage List</h3>
+            <div style={{display: "flex"}}>
+                <h3>Storage List</h3>
+                <Button type="text" onClick={handleClick} className="add-btn">Add new book</Button>
+            </div>
+
             <Table dataSource={storageList}>
                 <Column
                     title="Cover"
@@ -55,6 +73,17 @@ function StorageList(props){
                             </Link>
                         )
                     }}
+                />
+                <Column
+                    title="Delete"
+                    dataIndex="id"
+                    key="id"
+                    render={(id) => {
+                        return (
+                            <Button type="text" onClick={() => handleDelete(id)} className="delete-action" >Delete</Button>
+                        )
+                    }
+                    }
                 />
             </Table>
         </div>

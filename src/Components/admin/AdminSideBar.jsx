@@ -45,6 +45,17 @@ function AdminSideBar(props){
                             </label>
                         </Link>
                     </Menu.Item>
+                    <Menu.Item key="/Users">
+                        <Link to="/Users">
+                            <label className="sidebar-label"
+                                   style={
+                                       (current === "/Users") ? {fontWeight: "initial"}:{fontWeight: "lighter"}
+                                   }
+                            >
+                                Users
+                            </label>
+                        </Link>
+                    </Menu.Item>
                 </Menu>
             </Sider>
         </div>

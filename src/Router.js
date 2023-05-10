@@ -12,6 +12,9 @@ import UserView from "./View/UserView";
 import { ToastContainer } from 'react-toastify';
 import StorageDetail from "./Components/admin/StorageDetail";
 import StorageDetailView from "./View/adminView/StorageDetailView";
+import OrdersView from "./View/adminView/OrdersView";
+import UsersView from "./View/adminView/UsersView";
+import BlankStorageDetailView from "./View/adminView/BlankStorageDetailView";
 
 
 function BasicRoute(props){
@@ -44,6 +47,15 @@ function BasicRoute(props){
                 </Route>
                 <Route path="/Storage/:id" element={<PrivateRoute />} >
                     <Route path="/Storage/:id" element={<StorageDetailView />} />
+                </Route>
+                <Route path="/Storage/add" element={<PrivateRoute />}>
+                    <Route path="/Storage/add" element={<BlankStorageDetailView />}/>
+                </Route>
+                <Route path="/Orders" element={<PrivateRoute />}>
+                    <Route path="/Orders" element={<OrdersView />}/>
+                </Route>
+                <Route path="/Users" element={<PrivateRoute />}>
+                    <Route path="/Users" element={<UsersView />}/>
                 </Route>
             </Routes>
             <ToastContainer position='top-center'/>

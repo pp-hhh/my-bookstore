@@ -19,12 +19,6 @@ function RegisterView() {
 
   const navigate = useNavigate();
 
-  // function handleClick(){
-  //   setValues(defaultUser);
-  //   toast.success("Register success\n Login now");
-  //   navigate("/Login");
-  // }
-
 
   const callback = (data) => {
     if(data.status >= 0){
@@ -37,9 +31,17 @@ function RegisterView() {
   }
   function onSubmit(e) {
     e.preventDefault();
-    const { username, email, password, isMember } = values;
-    if (!email || !password || (!isMember && !username)) {
+    const { username, email, password, confirmPassword } = values;
+    if (!email || !password || !username || !confirmPassword) {
       toast.error("Please fill out all fields");
+      return;
+    }
+    if(!email.includes("@")){
+      toast.error("Invalid email");
+      return;
+    }
+    if(password !== confirmPassword){
+      toast.error("Password and confirm password must be the same");
       return;
     }
     userService.register(values, callback);
@@ -72,6 +74,13 @@ function RegisterView() {
           name="password"
           value={values.password}
           handleChange={handleChange}
+        />
+        {/* confirmpassword */}
+        <FormRow
+            type="confirmPassword"
+            name="confirm password"
+            value={values.confirmPassword}
+            handleChange={handleChange}
         />
         {/* button */}
         <button type="submit" className="login-btn btn" >

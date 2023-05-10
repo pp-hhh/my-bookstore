@@ -18,9 +18,9 @@ function CartList(props) {
   function handleNumberChange(value, id){
       // console.log(value, id);
       const url = `http://localhost:8080/api/cart/update/${user_id}/${id}`;
-      const number_data = {
-          number: value
-      }
+      // const number_data = {
+      //     number: value
+      // }
       updateCartItem(url, value, (data) => props.setCart(data)).then(window.location.reload);
   }
 

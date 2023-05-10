@@ -25,6 +25,11 @@ function StorageView(){
     }, [])
 
 
+    function updateStorage(data){
+        setStorageList(data);
+    }
+
+
     return (
         <div className="View">
             <HeaderInfo />
@@ -32,7 +37,7 @@ function StorageView(){
                 <Layout className="body">
                 <AdminSideBar cur_key={current} />
                 <Content>
-                    <StorageList storageList={storageList} />
+                    <StorageList storageList={storageList} setStorages={updateStorage} />
                 </Content>
                 </Layout>
             </Layout>
