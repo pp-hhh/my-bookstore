@@ -26,7 +26,7 @@ function RegisterView() {
       navigate("/Login");
     }
     else{
-      toast.error("Register failed");
+      toast.error(data.msg);
     }
   }
   function onSubmit(e) {
@@ -77,8 +77,8 @@ function RegisterView() {
         />
         {/* confirmpassword */}
         <FormRow
-            type="confirmPassword"
-            name="confirm password"
+            type="password"
+            name="confirmPassword"
             value={values.confirmPassword}
             handleChange={handleChange}
         />

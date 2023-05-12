@@ -121,7 +121,7 @@ export const getAllUsers = async (url, callback) => {
         })
 }
 
-export const updateUserRole = async (url, data, callback) => {
+export const updateUserStatus = async (url, data, callback) => {
     let opts = {
         method: 'POST',
         headers: {

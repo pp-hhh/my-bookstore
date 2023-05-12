@@ -1,19 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Table, Badge, Button, Modal, Radio} from "antd";
-import {updateUserRole} from "../../services/adminService";
+import {updateUserRole, updateUserStatus} from "../../services/adminService";
+import "../../css/adminView.css";
 
 const { Column, ColumnGroup } = Table;
 
 function UserList(props){
     const userList = props.users;
+    // console.log(userList);
+
+    const[isModalOpen, setIsModalOpen] = useState(false);
+    const[ok_or_cancel, setOkOrCancel] = useState(false);
+
+
+    const[status, setStatus] = useState(false); // 0: unblocked, 1: blocked
+    const[user_id, setUserId] = useState(0);
 
     function handleChange(e, id){
-        const role_value = e.value;
-        const user_id = id;
+        const block_or_not = e.target.value;
 
-        const url = `http://localhost:8080/user/setRole/${user_id}`;
+        setIsModalOpen(true);
+        setUserId(id);
+        setStatus(block_or_not);
 
-        updateUserRole(url, role_value, (data) => {props.setUsers(data)}).then(window.location.reload);
+        // const url = `http://localhost:8080/user/setStatus/${id}`;
+        // updateUserStatus(url, block_or_not, (data) => {props.setUsers(data)}).then();
+    }
+
+    function handleOk(){
+        setIsModalOpen(false);
+        setOkOrCancel(true);
+        console.log(status);
+        const url = `http://localhost:8080/user/setStatus/${user_id}`;
+        updateUserStatus(url, status, (data) => {props.setUsers(data)}).then();
+    }
+
+    function handleCancel(){
+        setIsModalOpen(false);
+        setOkOrCancel(false);
     }
 
 
@@ -45,20 +69,27 @@ function UserList(props){
                     className="user-content"
                 />
                 <Column
-                    title="Role"
-                    dataIndex="role"
-                    key="role"
+                    title="Status"
+                    dataIndex="blocked"
+                    key="blocked"
                     // className="user-content"
                     render={(_, userInfo) => {
                         return (
-                            <Radio.Group value={Number(userInfo.role)} className="user-content" onChange={handleChange(e, userInfo.id)}>
-                                <Radio value={0}>User</Radio>
-                                <Radio value={1}>Admin</Radio>
+                            <Radio.Group value={Number(userInfo.blocked)} className="user-content"
+                                         onChange={(e) => {
+                                             handleChange(e, userInfo.id);
+                                         }
+                                         }>
+                                <Radio value={0} className="user-status">UnBlocked</Radio>
+                                <Radio value={1} className="user-status">Blocked</Radio>
                             </Radio.Group>
                         )
                     }}
                 />
             </Table>
+            <Modal title="Warning" open={isModalOpen} onOk={() => handleOk()} onCancel={handleCancel}>
+                <span className="status-alert-content">Are you sure to change the status of this user?</span>
+            </Modal>
         </div>
     )
 }

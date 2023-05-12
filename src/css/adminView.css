@@ -112,3 +112,16 @@
 .user-content{
     font-family: "Montserrat";
 }
+
+.user-status{
+    font-family: "Montserrat";
+}
+
+:where(.css-dev-only-do-not-override-ph9edi).ant-radio-wrapper .ant-radio-checked .ant-radio-inner{
+    border-color: grey;
+    background-color: grey;
+}
+
+.status-alert-content{
+    font-family: "Montserrat";
+}
