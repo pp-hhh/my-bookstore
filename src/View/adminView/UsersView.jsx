@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import AdminSideBar from "../../Components/admin/AdminSideBar";
-import HeaderInfo from "../../Components/HeaderInfo";
+import AdminHeaderInfo from "../../Components/admin/AdminHeaderInfo";
 import {Layout} from "antd";
 import {useLocation} from "react-router-dom";
 import UserList from "../../Components/admin/UserList";
@@ -15,6 +15,8 @@ function UsersView(props){
         const url = "http://localhost:8080/api/users";
 
         function callback(data){
+            //filter data to remove admin
+            data = data.filter(user => Number(user.role) !== 1);
             setUsers(data);
         }
         getAllUsers(url, callback);
@@ -31,7 +33,7 @@ function UsersView(props){
 
     return (
         <div className="View">
-            <HeaderInfo />
+            <AdminHeaderInfo />
             <Layout className="middle-part">
                 <Layout className="body">
                     <AdminSideBar cur_key={current} />

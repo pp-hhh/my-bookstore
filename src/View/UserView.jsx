@@ -18,12 +18,13 @@ function UserView(props) {
   const user = JSON.parse(localStorage.getItem("user"));
   const username = user.username;
   const [userInfo, setUserInfo] = useState(defaultUser);
-  let initialUser;
+  const [initialUser, setInitialUser] = useState(defaultUser);
 
   useEffect(() => {
       const endpoint = `http://localhost:8080/user/${username}`;
       function callback(data) {
-          initialUser = data;
+          // initialUser = data;
+          setInitialUser(data);
           setUserInfo(data);
       }
       getUserInfo(endpoint, callback);
@@ -50,7 +51,7 @@ function UserView(props) {
 
   return (
     <div className="View">
-      <HeaderInfo />
+      <HeaderInfo current={current}/>
       <Layout className="middle-part">
         <Layout className="body">
           <SideBar cur_key={current} />

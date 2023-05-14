@@ -22,9 +22,6 @@ function UserList(props){
         setIsModalOpen(true);
         setUserId(id);
         setStatus(block_or_not);
-
-        // const url = `http://localhost:8080/user/setStatus/${id}`;
-        // updateUserStatus(url, block_or_not, (data) => {props.setUsers(data)}).then();
     }
 
     function handleOk(){

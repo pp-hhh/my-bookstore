@@ -44,7 +44,8 @@ export const changeInfo = (data) => {
     const callback = (data) => {
         if(data.status >= 0) {
             localStorage.setItem('user', JSON.stringify(data.data));
-            window.location.replace("/Profile");
+            // window.location.replace("/Profile");
+            toast.success("Change info successfully!");
         }
         else{
             toast.error(data.msg);

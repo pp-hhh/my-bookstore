@@ -13,8 +13,8 @@ function HeaderInfo(props) {
   const [showLogout, setShowLogout] = useState(false);
   const [user, setUser] = useState(localStorage.getItem("user"));
 
-  async function handleLogout() {
-      await UserService.logout();
+  function handleLogout() {
+    UserService.logout();
   }
 
   function handleUserClick() {
@@ -29,7 +29,9 @@ function HeaderInfo(props) {
         <Link to="/" className="navbar-brand">
           Booksy
         </Link>
-        <SearchBar onClick={handleSearch} />
+        {props.current === "/" || props.current === "/Home" ? (
+        <SearchBar filterBook={handleSearch} />
+        ) : null}
         <div className='user-btn-container'>
           <button
               type='button'

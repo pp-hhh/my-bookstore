@@ -9,12 +9,15 @@ function SearchBar(props) {
   function handleChange(event) {
     const value = event.target.value;
     setSearchTerm(value);
+    // console.log(value);
+      if(value === ""){
+          props.filterBook(value);
+      }
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    props.onClick(searchTerm);
+    props.filterBook(searchTerm);
     
   }
 
@@ -22,7 +25,7 @@ function SearchBar(props) {
     <div className="search-container">
       <Input
         className="search-input"
-        placeholder="Search by author, title"
+        placeholder="Search by book title"
         value={searchTerm}
         onChange={handleChange}
       />

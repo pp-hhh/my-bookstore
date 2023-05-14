@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import HeaderInfo from "../Components/HeaderInfo";
 import { Layout } from "antd";
 import SideBar from "../Components/SideBar";
@@ -26,10 +26,13 @@ function CartView(){
         getCartItems(endpoint, user_id, callback);
     },[])
 
+    const navigate = useNavigate();
+
+
 
     return (
         <div className="View">
-            <HeaderInfo/>
+            <HeaderInfo current={current}/>
             <Layout className="middle-part">
                 <Layout className="body">
                 <SideBar cur_key={current}/>

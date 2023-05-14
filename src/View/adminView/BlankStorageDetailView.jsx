@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {useParams} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
-import HeaderInfo from "../../Components/HeaderInfo";
+import AdminHeaderInfo from "../../Components/admin/AdminHeaderInfo";
 import {Layout} from "antd";
 import AdminSideBar from "../../Components/admin/AdminSideBar";
 import StorageDetail from "../../Components/admin/StorageDetail";
@@ -70,7 +70,7 @@ function BlankStorageDetailView(){
 
     return (
         <div className="View">
-            <HeaderInfo />
+            <AdminHeaderInfo />
             <Layout className="middle-part">
                 <Layout className="body">
                     <AdminSideBar cur_key="/" />

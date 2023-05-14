@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Link, useLocation} from "react-router-dom";
-import HeaderInfo from "../../Components/HeaderInfo";
-import SideBar from "../../Components/SideBar";
+import AdminHeaderInfo from "../../Components/admin/AdminHeaderInfo";
 import { Layout } from "antd";
 import Footer from "../../Components/Footer";
 import AdminSideBar from "../../Components/admin/AdminSideBar";
@@ -15,10 +14,12 @@ function StorageView(){
     const current = location.pathname;
 
     const [storageList, setStorageList] = useState([]);
+    const [allBooks, setAllBooks] = useState([]);
 
     useEffect(() => {
         const endpoint = "http://localhost:8080/api/storage";
         function callback(data){
+            setAllBooks(data);
             setStorageList(data);
         }
         getStorageList(endpoint, callback).then();
@@ -30,9 +31,21 @@ function StorageView(){
     }
 
 
+    function filterBook(searchInput){
+        if(searchInput === ""){
+            setStorageList(allBooks);
+            return;
+        }
+        let newlist = storageList.filter((item) => {
+            return item.title.toLowerCase().includes(searchInput.toLowerCase());
+        })
+        setStorageList(newlist);
+    }
+
+
     return (
         <div className="View">
-            <HeaderInfo />
+            <AdminHeaderInfo searchClick={filterBook} current={current} />
             <Layout className="middle-part">
                 <Layout className="body">
                 <AdminSideBar cur_key={current} />
