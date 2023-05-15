@@ -69,6 +69,7 @@ function UserList(props){
                     title="Status"
                     dataIndex="blocked"
                     key="blocked"
+                    width="40%"
                     // className="user-content"
                     render={(_, userInfo) => {
                         return (

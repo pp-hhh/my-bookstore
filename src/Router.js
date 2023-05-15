@@ -14,7 +14,9 @@ import StorageDetail from "./Components/admin/StorageDetail";
 import StorageDetailView from "./View/adminView/StorageDetailView";
 import OrdersView from "./View/adminView/OrdersView";
 import UsersView from "./View/adminView/UsersView";
+import DataView from "./View/adminView/DataView";
 import BlankStorageDetailView from "./View/adminView/BlankStorageDetailView";
+import OrderDataView from "./View/userView/OrderDataView";
 
 
 function BasicRoute(props){
@@ -42,6 +44,9 @@ function BasicRoute(props){
                 <Route path="/Order" element={<PrivateRoute />} >
                     <Route path="/Order" element={<OrderView />} />
                 </Route>
+                <Route path="/OrderData" element={<PrivateRoute />}>
+                    <Route path="/OrderData" element={<OrderDataView />} />
+                </Route>
                 <Route path="/Profile" element={<PrivateRoute />} >
                     <Route path="/Profile" element={<UserView />} />
                 </Route>
@@ -56,6 +61,9 @@ function BasicRoute(props){
                 </Route>
                 <Route path="/Users" element={<PrivateRoute />}>
                     <Route path="/Users" element={<UsersView />}/>
+                </Route>
+                <Route path="/Data" element={<PrivateRoute />}>
+                    <Route path="/Data" element={<DataView />} />
                 </Route>
             </Routes>
             <ToastContainer position='top-center'/>

@@ -5,6 +5,7 @@ import {
   BookOutlined,
   SolutionOutlined,
   ShoppingCartOutlined,
+  TableOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import "../css/index.css";
@@ -80,6 +81,24 @@ function SideBar(props) {
                 }
               >
                 Orders
+              </label>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="/Data">
+            <Link to="/OrderData">
+              <TableOutlined
+                  className="sidebar-icon"
+                  style={{ fontSize: "20px" }}
+              />
+              <label
+                  className="sidebar-label"
+                  style={
+                    current === "/Data"
+                        ? { fontWeight: "initial" }
+                        : { fontWeight: "lighter" }
+                  }
+              >
+                Data
               </label>
             </Link>
           </Menu.Item>
