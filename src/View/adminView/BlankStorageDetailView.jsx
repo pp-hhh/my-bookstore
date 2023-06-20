@@ -30,7 +30,7 @@ function BlankStorageDetailView(){
     // }, [])
 
     function changeBookInfo(key, value){
-        // console.log(key, value);
+        console.log(key, value);
         setBookStorage({
             ...bookStorage,
             [key]: value

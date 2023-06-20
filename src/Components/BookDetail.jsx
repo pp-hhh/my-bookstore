@@ -68,8 +68,11 @@ function BookDetail(props) {
                 <Descriptions.Item label="Publisher">
                   {book.publisher}
                 </Descriptions.Item>
+                <Descriptions.Item label="ISBN">
+                  {book.isbn}
+                </Descriptions.Item>
                 <Descriptions.Item label="Price">
-                  {book.price}
+                  ${book.price}
                 </Descriptions.Item>
                 <Descriptions.Item label="Status">
                   {book.stock > 0 ? "Available" : "Out of Stock"}

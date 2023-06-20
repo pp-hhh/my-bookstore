@@ -1,10 +1,9 @@
 import React from "react";
 import { TextField } from "@mui/material";
-import { Form, Button } from "antd";
+import {Form, Button, Input} from "antd";
 import {SearchOutlined, UploadOutlined} from "@ant-design/icons";
 import "../../css/adminView.css"
 import {Link} from "react-router-dom";
-
 
 function BlankStorageDetail(props){
     const bookStorage = props.storage;
@@ -46,12 +45,23 @@ function BlankStorageDetail(props){
                     <img src={bookStorage.image} alt="" className="bookstorage-img"/>
                     <Button
                         type="text"
-                        icon={<UploadOutlined />}
+                        // icon={<UploadOutlined />}
                         className="upload-btn"
-                        onClick={props.uploadImg}
+                        // onClick={props.uploadImg}
+                        style={{border: "none"}}
                     >
-                        Click to upload
+                        Input Cover Url:
                     </Button>
+                    <TextField
+                        id="standard-basic"
+                        label=" "
+                        variant="standard"
+                        name="image"
+                        className="storage-publisher"
+                        value={bookStorage.image}
+                        style={{fontSize: "15px"}}
+                        onChange={handleChange}
+                    />
                 </div>
                 <div className="book-basic-info">
                     <Form name="nest-messages" className="storage-form">
@@ -95,6 +105,21 @@ function BlankStorageDetail(props){
                                     name="publisher"
                                     className="storage-publisher"
                                     value={bookStorage.publisher}
+                                    style={{fontSize: "15px"}}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </Form.Item>
+                        <Form.Item>
+                            <div className="title-inputs">
+                                <span className="storage-tag">ISBN</span>
+                                <TextField
+                                    id="standard-basic"
+                                    label=" "
+                                    variant="standard"
+                                    className="storage-title"
+                                    name="isbn"
+                                    value={bookStorage.isbn}
                                     style={{fontSize: "15px"}}
                                     onChange={handleChange}
                                 />

@@ -44,11 +44,23 @@ function StorageDetail(props){
                 <img src={bookStorage.image} alt="" className="bookstorage-img"/>
                 <Button
                     type="text"
-                    icon={<UploadOutlined />}
+                    // icon={<UploadOutlined />}
                     className="upload-btn"
+                    style={{border: "none"}}
+                    // onClick={props.}
                 >
-                    Click to upload
+                    Input Cover Url:
                 </Button>
+                <TextField
+                    id="standard-basic"
+                    label=" "
+                    variant="standard"
+                    name="image"
+                    className="storage-publisher"
+                    value={bookStorage.image}
+                    style={{fontSize: "15px"}}
+                    onChange={handleChange}
+                />
             </div>
             <div className="book-basic-info">
                 <Form name="nest-messages" className="storage-form">
@@ -92,6 +104,21 @@ function StorageDetail(props){
                                 name="publisher"
                                 className="storage-publisher"
                                 value={bookStorage.publisher}
+                                style={{fontSize: "15px"}}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </Form.Item>
+                    <Form.Item>
+                        <div className="publisher-inputs">
+                            <span className="storage-tag">ISBN</span>
+                            <TextField
+                                id="standard-basic"
+                                label=" "
+                                variant="standard"
+                                name="isbn"
+                                className="storage-publisher"
+                                value={bookStorage.isbn}
                                 style={{fontSize: "15px"}}
                                 onChange={handleChange}
                             />

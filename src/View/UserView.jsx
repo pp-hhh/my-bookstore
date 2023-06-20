@@ -31,8 +31,14 @@ function UserView(props) {
   }, [])
 
     function changeUserInfo(name, value){
+      console.log(name, value);
       setUserInfo({...userInfo, [name]: value});
     }
+
+    // function avatarPreview(avatar){
+    //   const path = "D:\\Lab\\Web%20Development\\bookstore\\target\\classes\\static\\" + avatar;
+    //   setUserInfo({...userInfo, avatar: path});
+    // }
 
     function saveBtnClick(){
       const {username, email} = userInfo;
@@ -56,7 +62,12 @@ function UserView(props) {
         <Layout className="body">
           <SideBar cur_key={current} />
           <Content>
-            <UserProfile user={userInfo} updateUserInfo={changeUserInfo} saveChange={saveBtnClick} cancelChange={cancelChange}/>
+            <UserProfile user={userInfo}
+                         updateUserInfo={changeUserInfo}
+                         saveChange={saveBtnClick}
+                         cancelChange={cancelChange}
+                         // userAvatarPreview={avatarPreview}
+            />
           </Content>
         </Layout>
       </Layout>

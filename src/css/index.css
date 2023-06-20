@@ -170,6 +170,7 @@ label+.css-v4u5dn-MuiInputBase-root-MuiInput-root {
 .upload-btn {
     font-family: "Montserrat";
     border: 1px solid #8f8f8f;
+    margin-bottom: 5%;
 }
 
 .btn-group {
@@ -218,9 +219,9 @@ label+.css-v4u5dn-MuiInputBase-root-MuiInput-root {
 }
 
 .book-img {
-    width: 50%;
+    width: 70%;
     height: 93%;
-    margin-left: 15%;
+    margin-left: 5%;
     margin-right: 15%;
     border-radius: 10px;
 }

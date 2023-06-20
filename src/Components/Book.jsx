@@ -23,7 +23,7 @@ function Book(props) {
               <>
                 {props.item.author}
                 <br />
-                {props.item.price}
+                ${props.item.price}
               </>
             }
             className="book-card"

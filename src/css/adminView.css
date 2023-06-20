@@ -54,15 +54,25 @@
 }
 
 .bookstorage-img{
-    width: 50%;
+    width: 60%;
     height: 93%;
-    margin-left: 15%;
+    margin-left: 10%;
     margin-right: 15%;
     border-radius: 10px;
 }
 
 .upload-btn{
     margin-left: 20%;
+}
+
+.avatar-upload-btn{
+    font-family: "Montserrat";
+    border: 1px solid #8f8f8f;
+    margin-top: 5%;
+}
+
+.img-input{
+    border: black !important;
 }
 
 .storage-form {
