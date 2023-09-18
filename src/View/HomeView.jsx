@@ -18,7 +18,7 @@ function HomeView(props) {
   // const userInfo = useOutletContext();
 
   const userInfo = localStorage.getItem("user");
-  const is_admin = JSON.parse(userInfo).role;
+  const is_admin = (userInfo === "undefined") ? false : JSON.parse(userInfo).role;
 
   // const location = useLocation();
   // const current = location.pathname;

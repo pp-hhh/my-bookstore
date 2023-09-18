@@ -40,7 +40,7 @@ function OrderView() {
       for(let i = 0; i < initialOrders.length; ++i){
           let order = initialOrders[i].orderItemForms;
           // console.log(order);
-          for(let j = 0; j < initialOrders.length; ++j){
+          for(let j = 0; j < order.length; ++j){
               if(order[j].book_title.toLowerCase().includes(searchInput.toLowerCase())){
                   newlist.push(initialOrders[i]);
                   break;

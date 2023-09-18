@@ -1,8 +1,7 @@
 // import config from 'config';
 // import config from 'config';
-import {postRequest} from "../utils/ajax";
+import {loginRequest, postRequest, postRequest_v3} from "../utils/ajax";
 import { toast } from "react-toastify";
-import {useNavigate} from "react-router-dom";
 
 
 const default_url = "http://localhost:8080";
@@ -25,6 +24,7 @@ export const logout = () => {
     const callback = (data) => {
         if(data.status >= 0) {
             localStorage.clear();
+            alert(data.data.timer);
             //remove cookie
             document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Strict; Secure";
             window.location.replace("/Login");
@@ -56,46 +56,46 @@ export const changeInfo = (data) => {
 
 export const checkSession = (callback) => {
     //check if cookie exists
-    const cookieString = document.cookie;
-    const cookies = cookieString.split(';');
-
-    let cookieExists = false;
-
-    for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        const cookieName = cookie.split('=')[0];
-
-        if (cookieName === "user") {
-            cookieExists = true;
-        }
-    }
-
-    // console.log("cookieExists: " + cookieExists);
-
-    //no login cookie
-    if(!cookieExists){
-        //clear local storage
-        localStorage.clear();
-        callback(null);
-        return;
-    }
-
-    let user = localStorage.getItem("user");
-    if(user === null){
-        callback(null);
-        return;
-    }
-
-    // console.log("user: " + user);
-
-    // const id = user.id;
-    const id = JSON.parse(user).id;
+    // const cookieString = document.cookie;
+    // const cookies = cookieString.split(';');
+    //
+    // let cookieExists = false;
+    //
+    // for (let i = 0; i < cookies.length; i++) {
+    //     const cookie = cookies[i].trim();
+    //     const cookieName = cookie.split('=')[0];
+    //
+    //     if (cookieName === "user") {
+    //         cookieExists = true;
+    //     }
+    // }
+    //
+    // // console.log("cookieExists: " + cookieExists);
+    //
+    // //no login cookie
+    // if(!cookieExists){
+    //     //clear local storage
+    //     localStorage.clear();
+    //     callback(null);
+    //     return;
+    // }
+    //
+    // let user = localStorage.getItem("user");
+    // if(user === null){
+    //     callback(null);
+    //     return;
+    // }
+    //
+    // // console.log("user: " + user);
+    //
+    // // const id = user.id;
+    // const id = JSON.parse(user).id;
 
 
     // console.log("id: " + id);
 
     const url = default_url + `/checkSession`;
-    postRequest(url, {id}, callback);
+    postRequest(url, {}, callback);
 };
 
 export const getUserInfo = (url, callback) => {

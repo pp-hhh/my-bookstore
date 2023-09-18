@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
-import { useNavigate } from "react-router-dom";
+import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
 import FormRow from "../Components/FormRow";
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
 import "../css/login.css";
 import * as userService from "../services/userService";
 
@@ -28,7 +28,7 @@ function LogView() {
   function onSubmit(e) {
     e.preventDefault();
     const {username, password, isMember} = values;
-    if (!password || (!isMember && !username)) {
+    if (!password || !username) {
       toast.error("Please fill out all fields");
       return;
     }

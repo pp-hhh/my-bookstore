@@ -24,6 +24,7 @@ function UsersView(props){
 
 
     function updateUsers(data){
+        data = data.filter(user => Number(user.role) !== 1);
         setUsers(data);
     }
 
