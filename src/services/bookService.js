@@ -56,6 +56,7 @@ export const purchaseBookDirectly = async (url, json, callback) => {
             'Access-Control-Allow-Origin': '*'
         },
         origin: 'http://localhost:3000',
+        credentials: 'include',
         body: JSON.stringify(json),
     }
     await fetch(url, opts)

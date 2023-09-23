@@ -1,9 +1,17 @@
 import React, {useState} from "react";
-import {Button, Descriptions, InputNumber} from "antd";
+import {Button, Descriptions, InputNumber, notification} from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import {addBooktoCart, purchaseBookDirectly} from "../services/bookService";
 import {toast} from "react-toastify";
+import {closeWebSocket, createWebSocket} from "../utils/websocket";
+
+const remindInfoCheck = (type, content) => {
+  notification[type]({
+    message: "Notification",
+    description: content,
+  });
+}
 
 function BookDetail(props) {
   const book = props.bookitem;
@@ -34,8 +42,17 @@ function BookDetail(props) {
     const data = {bookId: Number(book.id), userId: Number(user_id), quantity: Number(bookNum)};
     const url = "http://localhost:8080/book/purchaseDirectly";
     function callback(data) {
-      if(data === true){
-        toast.success("purchase successfully!");
+      if(data.status >= 0){
+        const uuid = data.data.uuid;
+        if(uuid !== null){
+          remindInfoCheck('success', "Your order has been handled!\n Order id: " + uuid);
+          //create websocket
+          const socketURL = "ws://localhost:8080/websocket/transfer/" + uuid;
+          createWebSocket(socketURL, (info) => {
+            remindInfoCheck('warning', info.data);
+            closeWebSocket();
+          })
+        }
       }else{
         toast.error("purchase failed!");
       }
