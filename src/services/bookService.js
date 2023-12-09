@@ -25,6 +25,26 @@ export const getAllBooks = async (url, callback) => {
         });
 }
 
+export const graphqlGetBookByTitle = async (url, query, callback) => {
+    let opts = {
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        },
+        origin: 'http://localhost:3001',
+        body: JSON.stringify(query),
+    }
+    await fetch(url, opts)
+        .then((response) => response.json())
+        .then((data) => {
+            callback(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
+
 export const addBooktoCart = async (url, json, callback) => {
     let opts = {
         method: 'POST',

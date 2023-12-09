@@ -6,7 +6,7 @@ import {useLocation} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import BookCarousel from "../../Components/BookCarousel";
 import BookList from "../../Components/BookList";
-import {getAllBooks} from "../../services/bookService";
+import {getAllBooks, graphqlGetBookByTitle} from "../../services/bookService";
 
 const { Content } = Layout;
 
@@ -36,6 +36,17 @@ function UserHomeView(props){
             setList(allBooks);
             return;
         }
+        // graphql query (bookByTitle)
+        const endpoint = "http://localhost:8080/graphql";
+        const query = {"query": `{bookByTitle(title: "${searchInput}") {id,title,author,price}}`};
+        console.log(query);
+        function callback(data) {
+            // alert (data);
+            alert(JSON.stringify(data));
+        }
+        graphqlGetBookByTitle(endpoint, query, callback);
+
+
         let newlist = list.filter((book) =>
             book.title.toLowerCase().includes(searchInput.toLowerCase())
         );
